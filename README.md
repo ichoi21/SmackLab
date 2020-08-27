@@ -1,8 +1,82 @@
+# Project 3: SmackLab
+
+## Description
+
+A database to which enables to to store your shoe collection and know its worth
+
+```
+-USER will have a search engine to find workout of their choice.
+-USER will have a questionaire to determine a program for their level of fitness.
+-USER can create an authenticated account to save their program in a private database
+-USER can smack talk to one another to motivate one another.
+-USER can live chat with a Team 150% member.
+```
+
+## Overview
+
+Working with a team to develop a full-stack web application, designing and building an app using MERN full stack with React. Working online app at at [heroku](https://smacklab.herokuapp.com)
+
+## Team Members
+
+[![All Contributors](https://img.shields.io/badge/contributors-4-yellow)](#contributors-)
+[![Honorary Members](https://img.shields.io/badge/honorary-3-brightgreen)](#honorary-)
+
+- [Danielle Arias](https://github.com/ichoi21)
+- [Ian Choi](https://github.com/ichoi21)
+- [Joseph Tawil](https://github.com/ichoi21)
+- [Michelle Tran](https://github.com/ichoi21)
+
+- Honorary team members - [Clarence]/[Donny](https://github.com/donaldvallejo)/[Thomas](https://github.com/ts22082)
+
+## Build status
+
+In development - [GitHub](https://github.com/ichoi21/SmackLab)
+Deployed - [heroku](https://smacklab.herokuapp.com/)
+
+<hr>
+
+## Packages (back-end)
+
+- JavaScript/jQuery
+- Node.js
+
+```
+  "dependencies": {
+        TBD
+  },
+```
+
+## Libraries (front-end)
+
+- [HTML/CSS](https://w3schools.com)
+- [Material icons](https://material.io/)
+- [Google Fonts](https://fonts.google.com/)
+- [Font Awesome](https://fontawesome.com/start)
+- [jQuery](https://code.jquery.com/)
+
+## Reference USD
+
+- [stackoverflow](https://stackoverflow.com/)
+- [w3schools.com](https://www.w3schools.com/)
+- [Google](www.google.com)
+- [npmjs.com](https://www.npmjs.com/)
+- [github open source](github.com)
+
+## Future Development
+
+- Get Users involved for more smack talking!
+
+<hr>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Downloads all of the necessary dependencies to work with the app locally.
 
 ### `npm start`
 
@@ -11,11 +85,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -26,43 +95,3 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
