@@ -14,6 +14,15 @@ function App() {
   const [chat, setChat] = useState([]);
 
 
+  const onTextChange = (e) => {
+    setState({...state, [e.target.name]: e.target.value});
+  }
+
+  const onMessageSubmit = (e) => {
+    e.preventDefault();
+    
+  }
+
   const renderChat = () =>{
     return chat.map({name, message}, index=>(
       <div key={index}>
