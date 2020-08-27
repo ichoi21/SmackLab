@@ -21,4 +21,6 @@ class Quiz extends Component {
       this.setState({ questionBank: question });
     });
   };
+
+  // Set state back to default and call function
 }
