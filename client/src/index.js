@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const cors = require("cors");
-dotenv.config();
-app.use(cors());
+import "./index.css";
 
-mongoose.connect()
+// const cors = require("cors");
+// dotenv.config();
+// app.use(cors());
+
+// mongoose.connect()
 
 ReactDOM.render(
   <React.StrictMode>
