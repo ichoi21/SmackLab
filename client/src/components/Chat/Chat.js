@@ -36,7 +36,7 @@ const Chat = () => {
     socket.on('message', ({name, message}) => {
       setChat([...chat, {name, message}]);
     })
-  }, []);
+  });
 
     return (
         <div className="App">
