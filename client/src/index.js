@@ -5,10 +5,10 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 const cors = require("cors");
-dotenv.config();
-app.use(cors());
+// dotenv.config();
+// app.use(cors());
 
-mongoose.connect()
+// mongoose.connect()
 
 ReactDOM.render(
   <React.StrictMode>
