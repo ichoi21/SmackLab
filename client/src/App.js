@@ -1,29 +1,17 @@
-import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import axios from 'axios';
-import './App.css';
+import React, { useEffect } from "react";
+import { Button } from "react-materialize";
+
+import logo from "./components/img/logo1.png";
+import lgLogo from "./components/img/sl_md.png";
+
+import "./App.css";
 
 function App() {
-
-  useEffect(() => {
-    axios.get(`/example`).then((res)=>console.log(res));
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img className="App-logo hoverable z-depth-3" src={logo} />
+        <img src={lgLogo} />
       </header>
     </div>
   );
