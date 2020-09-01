@@ -133,7 +133,6 @@ class App extends Component {
           <img src={lgLogo} />
         </header>
         <Chat />
-
         {this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>
     );
