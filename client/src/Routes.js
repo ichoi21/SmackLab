@@ -7,7 +7,7 @@ import {
     Redirect,
 } from "react-router-dom";
 
-import Login from "./Components/Pages/Login/Login";
+import Login from "./components/Pages/Login";
 
 const Routes = (props) => (
     <Router {...props}>
