@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 import React, { useEffect, Component } from "react";
 import { Button } from "react-materialize";
 import logo from "./components/img/logo1.png";
 import lgLogo from "./components/img/sl_md.png";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Home from "./Components/Pages/Home";
+import SignUp from "./Components/Pages/SignUp";
+
 import "./App.css";
 import Chat from "./components/Chat/Chat";
 
@@ -125,6 +131,7 @@ class App extends Component {
     return <Result quizResult={this.state.result} />;
   }
 
+<<<<<<< Updated upstream
   render() {
     return (
       <div className="App">
@@ -137,6 +144,17 @@ class App extends Component {
       </div>
     );
   }
+=======
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/signup" component={SignUp} />
+      </Switch>
+    </Router>
+  );
+>>>>>>> Stashed changes
 }
 
 export default App;
