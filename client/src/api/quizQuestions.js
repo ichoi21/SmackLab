@@ -24,19 +24,19 @@ var quizQuestions = [
     question: "How often do you currently plan to exercise?",
     answers: [
       {
-        type: "Frequency",
+        type: "Question1",
         content: "1-2 times a week",
       },
       {
-        type: "Frequency",
+        type: "Question2",
         content: "3-4 times a week",
       },
       {
-        type: "Frequency",
+        type: "Question3",
         content: "4-5 times a week",
       },
       {
-        type: "Frequency",
+        type: "Question4",
         content: "5+ times a week",
       },
     ],
@@ -63,15 +63,15 @@ var quizQuestions = [
       "Is there something you'd like more information on or have been wanting to try?",
     answers: [
       {
-        type: "Fitness",
+        type: "Fitness1",
         content: "Fitness classes near you",
       },
       {
-        type: "Fitness",
+        type: "Fitness2",
         content: "Meal plan help",
       },
       {
-        type: "Fitness",
+        type: "Fitness3",
         content: "Workout suggestions",
       },
     ],
