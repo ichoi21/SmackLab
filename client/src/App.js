@@ -13,13 +13,6 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-<<<<<<< HEAD
-  return (
-    <div className="container">
-    <Chat/>
-    </div>
-  );
-=======
     this.state = {
       counter: 0,
       questionId: 1,
@@ -145,7 +138,6 @@ class App extends Component {
       </div>
     );
   }
->>>>>>> master
 }
 
 export default App;
