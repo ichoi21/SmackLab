@@ -4,7 +4,7 @@ import logo from "./components/img/logo1.png";
 import lgLogo from "./components/img/sl_md.png";
 import "./App.css";
 import Chat from "./components/Chat/Chat";
-
+import Exercise from './api/Exercises';
 import quizQuestions from "./api/quizQuestions";
 import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Quiz/Result";
@@ -134,6 +134,7 @@ class App extends Component {
         </header>
         <Chat />
         {this.state.result ? this.renderResult() : this.renderQuiz()}
+        <Exercise/>
       </div>
     );
   }
