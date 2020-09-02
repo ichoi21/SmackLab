@@ -1,19 +1,18 @@
-<<<<<<< Updated upstream
 import React, { useEffect, Component } from "react";
 import { Button } from "react-materialize";
-import logo from "./components/img/logo1.png";
-import lgLogo from "./components/img/sl_md.png";
+import logo from "./Components/img/logo1.png";
+import lgLogo from "./Components/img/sl_md.png";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./Components/Pages/Home";
 import SignUp from "./Components/Pages/SignUp";
 
 import "./App.css";
-import Chat from "./components/Chat/Chat";
+import Chat from "./Components/Chat/Chat";
 
 import quizQuestions from "./api/quizQuestions";
-import Quiz from "./components/Quiz/Quiz";
-import Result from "./components/Quiz/Result";
+import Quiz from "./Components/Quiz/Quiz";
+import Result from "./Components/Quiz/Result";
 
 class App extends Component {
   constructor(props) {
@@ -131,30 +130,25 @@ class App extends Component {
     return <Result quizResult={this.state.result} />;
   }
 
-<<<<<<< Updated upstream
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img className="App-logo hoverable z-depth-3" src={logo} />
-          <img src={lgLogo} />
-        </header>
-        <Chat />
-        {this.state.result ? this.renderResult() : this.renderQuiz()}
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <img className="App-logo hoverable z-depth-3" src={logo} />
+            <img src={lgLogo} />
+          </header>
+          <Chat />
+          {this.state.result ? this.renderResult() : this.renderQuiz()}
+
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/signup" component={SignUp} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
-=======
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/signup" component={SignUp} />
-      </Switch>
-    </Router>
-  );
->>>>>>> Stashed changes
 }
 
 export default App;
