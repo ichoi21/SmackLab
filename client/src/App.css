@@ -22,11 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  font-style: "Montserrat Light Alt1";
-}
-
-.App-link {
-  color: #61dafb;
+  font-family: "Montserrat";
 }
 
 @keyframes App-logo-spin {
@@ -34,6 +30,6 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(90deg);
   }
 }
