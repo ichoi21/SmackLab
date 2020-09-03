@@ -9,6 +9,7 @@ import Home from "./components/Pages/Home";
 import SignUp from "./components/Pages/SignUp";
 import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Quiz/Result";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -144,6 +145,7 @@ class App extends Component {
             <Route path="/signup" component={SignUp} />
             <Route path="/chat" component={Chat} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
