@@ -1,11 +1,16 @@
-import React from 'react';
+import { authContext } from "../contexts/AuthContext";
+import React, { useContext, useState } from "react";
 
-const Login = () => {
-    return (
-        <div>
-            <h1>Login Page</h1>;
-        </div>
-    )
-}
+const Login = ({history}) => {
+    ...
+    const { setAuthData} = useContext(authContext);
+
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        setAuthData(email);
+        history.replace('/');
+    };
+    ...
+};
 
 export default Login;
