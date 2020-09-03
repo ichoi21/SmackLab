@@ -1,7 +1,7 @@
 
 import React, { Component, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
+import Exercise from "./api/Exercises";
 import quizQuestions from "./api/quizQuestions";
 import Chat from "./components/Chat/Chat";
 import logo from "./components/img/logo1.png";
@@ -149,6 +149,7 @@ class App extends Component {
             <Route path="/" component={Home} />
             <Route path="/signup" component={SignUp} />
             <Route path="/chat" component={Chat} />
+            <Route path="/exercise" component={Exercise} />
           </Switch>
           <Footer />
         </div>

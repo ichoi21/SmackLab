@@ -9,7 +9,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
 import { Link, Switch, useRouteMatch } from "react-router-dom";
-
+import Exercise from "../../api/Exercises";
 import Chat from "../Chat/Chat";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
@@ -70,6 +70,9 @@ const Home = () => {
             <Button color="inherit">
               <Link to="/chat">Chat</Link>
             </Button>
+            <Button color="inherit">
+              <Link to="/exercise">Exercise</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -81,6 +84,9 @@ const Home = () => {
         </route>
         <route path="/chat">
           <Chat />
+        </route>
+        <route path="/exercise">
+          <Exercise />
         </route>
       </Switch>
     </div>
