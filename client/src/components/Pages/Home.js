@@ -49,12 +49,12 @@ const Home = () => {
     <div className="App">
 
       <header className="App-header">
-        <AppBar position="fixed">
+        <AppBar position="fixed" className="secondary">
           <Toolbar>
             <IconButton
               edge="start"
               className={classes.menuButton}
-              color="inherit"
+              color="#212121"
               aria-label="menu"
               image={logo}
             >
@@ -64,7 +64,7 @@ const Home = () => {
               <img src={logo_sm} />
             </Typography>
 
-            <Button color="inherit">
+            <Button color="white">
               <Link to="/signup">Sign Up</Link>
             </Button>
             <Button color="inherit">
