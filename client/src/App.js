@@ -138,13 +138,14 @@ class App extends Component {
             <img className="App-logo hoverable z-depth-3" src={logo} />
             <img src={lgLogo} />
           </header>
-          <Chat />
+          {/* <Chat /> */}
           <Exercises/>
           {this.state.result ? this.renderResult() : this.renderQuiz()}
 
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/chat" component={Chat} />
           </Switch>
         </div>
       </Router>
