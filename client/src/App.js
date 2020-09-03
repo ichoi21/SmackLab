@@ -9,7 +9,7 @@ import SignUp from "./components/Pages/SignUp";
 
 import "./App.css";
 import Chat from "./components/Chat/Chat";
-
+import Exercises from "./api/Exercises"
 import quizQuestions from "./api/quizQuestions";
 import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Quiz/Result";
@@ -139,6 +139,7 @@ class App extends Component {
             <img src={lgLogo} />
           </header>
           <Chat />
+          <Exercises/>
           {this.state.result ? this.renderResult() : this.renderQuiz()}
 
           <Switch>

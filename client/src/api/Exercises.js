@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
 const api = axios.create({
@@ -6,18 +6,30 @@ const api = axios.create({
 });
 
 const Exercises = () => {
-
-    const [state, setState] = useState({exercises : []});
     
-    
-    api.get('/').then(res=>{
-        console.log(res.data);
-        setState({ exercises: res.data});
-    });
+    const [state, setState] = useState([]);
 
+
+
+    const getMuscles = ()=>{
+
+        api.get('/').then(res=>{
+            console.log(res.data.results);
+            setState(res.data.results)
+        });
+    }
+
+    useEffect(() => {
+        getMuscles();
+    }, []);
+
+    console.log(state);
     return (
-        <div>
+        <div className="container" style={{border: '1px solid'}}>
             
+            {state.map((exercise) => (
+                <h2 key={exercise.id}>{exercise.name}</h2>
+            ))}
         </div>
     )
 }
