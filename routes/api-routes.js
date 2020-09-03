@@ -23,8 +23,8 @@ router.post("/signup", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   })
-  .then(function(dbEmployee) {
-      res.send(dbEmployee);
+  .then(function(dbUser) {
+      res.send(dbUser);
   })
   .catch(function(err) { res.json(err); });
 });
