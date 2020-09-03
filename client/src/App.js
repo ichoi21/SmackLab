@@ -1,18 +1,18 @@
 import React, { useEffect, Component } from "react";
 import { Button } from "react-materialize";
-import logo from "./Components/img/logo1.png";
-import lgLogo from "./Components/img/sl_md.png";
+import logo from "./components/img/logo1.png";
+import lgLogo from "./components/img/sl_md.png";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from "./Components/Pages/Home";
-import SignUp from "./Components/Pages/SignUp";
+import Home from "./components/Pages/Home";
+import SignUp from "./components/Pages/SignUp";
 
 import "./App.css";
-import Chat from "./Components/Chat/Chat";
+import Chat from "./components/Chat/Chat";
 
 import quizQuestions from "./api/quizQuestions";
-import Quiz from "./Components/Quiz/Quiz";
-import Result from "./Components/Quiz/Result";
+import Quiz from "./components/Quiz/Quiz";
+import Result from "./components/Quiz/Result";
 
 class App extends Component {
   constructor(props) {
