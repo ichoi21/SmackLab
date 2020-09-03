@@ -1,23 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const CreateUser = () => {
+    const newUser= {
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: ""
+    };
+
+    const [user, setUser] = useState(newUser);
+    
     useEffect(() => {
-        const newUser= {
-            first_name: "",
-            last_name: "",
-            email: "",
-            password: ""
-        };
+        
+        // const [submitted, setSubmitted] = useState(false);
 
-        const [user, setUser] = useState(newUser);
-        const [submitted, setSubmitted] = useState(false);
-
-        const handleInputChange = event => {
+        const HandleInputChange = event => {
             setUser({ ...user, [event.target.name]: event.target.value});
         };
 
-        const handleSubmit = (e) => {
+        const HandleSubmit = (e) => {
             e.preventDefault();
             axios.post("/signup", user)
             .then(function(response) {
@@ -27,7 +29,7 @@ const CreateUser = () => {
                 console.log(error);
             });
         }
-    }, [setUser]);
+    });
 }
 
 export default CreateUser;
