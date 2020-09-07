@@ -1,6 +1,8 @@
 .App-header {
-
   max-height: 10vh;
   background-color: #212121;
 }
 
+.MuiPaper-root {
+  background-color: #272827 !important;
+}

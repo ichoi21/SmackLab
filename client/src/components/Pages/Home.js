@@ -47,7 +47,6 @@ const Home = () => {
 
   return (
     <div className="App">
-
       <header className="App-header">
         <AppBar position="fixed" className="secondary">
           <Toolbar>
@@ -75,7 +74,6 @@ const Home = () => {
       </header>
 
       <Switch>
-
         <route path="/signup">
           <SignUp />
         </route>
