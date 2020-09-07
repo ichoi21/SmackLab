@@ -1,6 +1,6 @@
 import React from "react";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { 
+import {
   Avatar,
   Button,
   CssBaseline,
@@ -9,8 +9,8 @@ import {
   Grid,
   Typography,
   makeStyles,
-  Container 
-  } from "@material-ui/core";
+  Container,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
