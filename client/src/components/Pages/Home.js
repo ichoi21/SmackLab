@@ -8,12 +8,13 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
-import { Link, Switch, useRouteMatch } from "react-router-dom";
+import { Link, Switch } from "react-router-dom";
 
 import Chat from "../Chat/Chat";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
 import SignUp from "./SignUp";
+import Login from "./Login";
 
 import "../AppBar/AppBar.css";
 
@@ -25,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "20vh",
     minHeight: "10vh",
     height: "10vh",
+    boxShadow: "none",
+    backgroundColor: "#22121",
   },
   positionFixed: {
     flexGrow: 1,
@@ -48,7 +51,7 @@ const Home = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <AppBar position="fixed" className="secondary">
+        <AppBar position="fixed" className={classes.root}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -66,6 +69,9 @@ const Home = () => {
             <Button color="white">
               <Link to="/signup">Sign Up</Link>
             </Button>
+            <Button color="white">
+              <Link to="/login">Log In</Link>
+            </Button>
             <Button color="inherit">
               <Link to="/chat">Chat</Link>
             </Button>
@@ -76,6 +82,9 @@ const Home = () => {
       <Switch>
         <route path="/signup">
           <SignUp />
+        </route>
+        <route path="/login">
+          <Login />
         </route>
         <route path="/chat">
           <Chat />
