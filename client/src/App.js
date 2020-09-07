@@ -1,3 +1,4 @@
+
 import React, { Component, useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
@@ -137,7 +138,11 @@ class App extends Component {
             <img className="App-logo hoverable z-depth-3" src={logo} />
             <img src={lgLogo} />
           </header>
+
+
           {/* <Chat /> */}
+
+
           {this.state.result ? this.renderResult() : this.renderQuiz()}
 
           <Switch>
