@@ -75,6 +75,9 @@ const Home = () => {
             <Button color="inherit">
               <Link to="/chat">Chat</Link>
             </Button>
+            <Button color="inherit">
+              <Link to="/profile">Profile</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -90,6 +93,7 @@ const Home = () => {
           <Chat />
         </route>
       </Switch>
+      <route path="/profile"></route>
     </div>
   );
 };
