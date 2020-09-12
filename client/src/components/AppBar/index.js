@@ -17,6 +17,7 @@ import logo_sm from "../img/sl_md.png";
 import lgLogo from "../img/sl_md.png";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import Exercises from "../Exercise/Categories";
 
 import "../AppBar/AppBar.css";
 
@@ -79,6 +80,9 @@ const Home = () => {
             <Button color="white">
               <Link to="/chat">Chat</Link>
             </Button>
+            <Button color="white">
+              <Link to="/exercise">Exercises</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -92,6 +96,9 @@ const Home = () => {
         </route>
         <route path="/chat">
           <Chat />
+        </route>
+        <route path="/exercise">
+          <Exercises />
         </route>
       </Switch>
       <img className="App-logo z-depth-3" src={logo} />

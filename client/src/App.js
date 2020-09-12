@@ -10,7 +10,7 @@ import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Quiz/Result";
 import Header from "./components/AppBar";
 import Footer from "./components/Footer";
-import Exercises from "./api/Exercises";
+import Exercises from "./components/Exercise/Categories";
 
 import "./App.css";
 
