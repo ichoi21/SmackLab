@@ -10,6 +10,7 @@ import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Quiz/Result";
 import Header from "./components/AppBar";
 import Footer from "./components/Footer";
+import Exercises from "./api/Exercises";
 
 import "./App.css";
 
@@ -141,6 +142,7 @@ class App extends Component {
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
             <Route path="/chat" component={Chat} />
+            <Route path="/exercises" component={Exercises} />
           </Switch>
           <Footer />
         </div>
