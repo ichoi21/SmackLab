@@ -3,9 +3,9 @@ import {
   Button,
   IconButton,
   makeStyles,
+  Palette,
   Toolbar,
   Typography,
-  Palette,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
@@ -14,10 +14,10 @@ import { Link, Switch } from "react-router-dom";
 import Chat from "../Chat/Chat";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
-import lgLogo from "../img/sl_md.png";
-import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
 import Exercises from "../Exercise/Categories";
+import Profile from "../Pages/Profile";
+import SignUp from "../Pages/SignUp";
 
 import "../AppBar/AppBar.css";
 
@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     position: "-webkit-sticky",
     top: 0,
-    maxHeight: "20vh",
-    minHeight: "10vh",
-    height: "10vh",
+    maxHeight: "10vh",
+    minHeight: "5vh",
+    height: "5vh",
     boxShadow: "none",
     backgroundColor: "#22121",
   },
@@ -36,9 +36,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     position: "-webkit-sticky",
     top: 0,
-    maxHeight: "20vh",
-    minHeight: "10vh",
-    height: "10vh",
+    maxHeight: "10vh",
+    minHeight: "5vh",
+    height: "5vh",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -82,6 +82,7 @@ const Home = () => {
             </Button>
             <Button color="white">
               <Link to="/exercise">Exercises</Link>
+              <Link to="/profile">Profile</Link>
             </Button>
           </Toolbar>
         </AppBar>
@@ -99,10 +100,11 @@ const Home = () => {
         </route>
         <route path="/exercise">
           <Exercises />
+          </route>
+        <route path="/profile">
+          <Profile />
         </route>
       </Switch>
-      <img className="App-logo z-depth-3" src={logo} />
-      <img src={lgLogo} />
     </div>
   );
 };
