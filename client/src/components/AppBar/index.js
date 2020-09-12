@@ -15,6 +15,7 @@ import Chat from "../Chat/Chat";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
 import Login from "../Pages/Login";
+import Quiz from "../Quiz";
 import Exercises from "../Exercise/Categories";
 import Profile from "../Pages/Profile";
 import SignUp from "../Pages/SignUp";
@@ -81,6 +82,9 @@ const Home = () => {
               <Link to="/chat">Chat</Link>
             </Button>
             <Button color="white">
+              <Link to="/quiz">Quiz</Link>
+            </Button>
+            <Button color="white">
               <Link to="/exercise">Exercises</Link>
             </Button>
             <Button color="white">
@@ -99,6 +103,9 @@ const Home = () => {
         </route>
         <route path="/chat">
           <Chat />
+        </route>
+        <route path="/quiz">
+          <Quiz />
         </route>
         <route path="/exercise">
           <Exercises />
