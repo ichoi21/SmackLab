@@ -26,7 +26,7 @@ Working with a team to develop a full-stack web application, designing and build
 - [Joseph Tawil](https://github.com/ichoi21)
 - [Michelle Tran](https://github.com/ichoi21)
 
-- Honorary team members - [Clarence]/[Donny](https://github.com/donaldvallejo)/[Thomas](https://github.com/ts22082)
+- Honorary team members - [Clarence](https://github.com/kleranscoding)/[Donny](https://github.com/donaldvallejo)/[Thomas](https://github.com/ts22082)
 
 ## Build status
 

@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import pic0 from "../images/pic0.png"
-import pic1 from "../images/pic1.png"
-import pic2 from "../images/pic2.png"
-import pic3 from "../images/pic3.png"
-import pic4 from "../images/pic4.png"
-import pic5 from "../images/pic5.png"
-import pic6 from "../images/pic6.png"
+import "./Categories.css"
+import pic0 from "../../images/pic0.jpg";
+import pic1 from "../../images/pic1.jpg"
+import pic2 from "../../images/pic2.jpg"
+import pic3 from "../../images/pic3.jpg"
+import pic4 from "../../images/pic4.jpg"
+import pic5 from "../../images/pic5.jpg"
+import pic6 from "../../images/pic6.jpg"
 const picArray = [pic0, pic1, pic2, pic3, pic4, pic5, pic6];
 
 const api = axios.create({
@@ -22,6 +23,9 @@ const Exercises = () => {
     
     const [state, setState] = useState({name:[], image: []});
 
+    const getExercises = () => {
+        window.location.href = "http://localhost:3000/exercises";
+    }
 
 
     const getMuscles = ()=>{
@@ -48,21 +52,18 @@ const Exercises = () => {
             
             {state.name.map((exercises, index) => (
                 
-                <div className="card" style={{width: "800px"},{height: "800px"}}>
-                <div className="card-image waves-effect waves-block waves-light">
-                <img className="activator" style={{width: "100px"},{height: "700px"}}src={picArray[index]} alt="no worky"/>
-                </div>
-                <div className="card-content">
-                  <span className="card-title activator grey-text text-darken-4" key={index}>{exercises.name}<i className="material-icons right">more_vert</i></span>
-                </div>
-                <div className="card-reveal">
-                  <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                <div class="row">
+                <div class="col s12 m6">
+                  <div class="card" onClick={getExercises}>
+                    <div class="card-image">
+                      <img src={picArray[index]}/>
+                      <span class="card-title" >{exercises.name}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-                )
-                
-                           
+                     
+                )        
             )}
         </div>
     )
