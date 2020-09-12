@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 5000;
 const path = require("path");
 const cors = require("cors");
 
+app.use(cors());
+
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -42,6 +44,7 @@ app.use("/api/users", users);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
+app.options('*', cors());
 
 // const apiRoutes = require("./routes/api-routes");
 // app.use(apiRoutes);
