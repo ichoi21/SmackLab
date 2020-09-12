@@ -1,53 +1,6 @@
-import {
-  AppBar,
-  Button,
-  IconButton,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
-import { Link, Switch } from "react-router-dom";
-
-import Chat from "../Chat/Chat";
-import logo from "../img/logo1.png";
-import logo_sm from "../img/sl_md.png";
-import SignUp from "./SignUp";
-import Login from "./Login";
-import Exercises from "../../api/Exercises";
-import "../AppBar/AppBar.css";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    position: "-webkit-sticky",
-    top: 0,
-    maxHeight: "20vh",
-    minHeight: "10vh",
-    height: "10vh",
-    boxShadow: "none",
-    backgroundColor: "#22121",
-  },
-  positionFixed: {
-    flexGrow: 1,
-    position: "-webkit-sticky",
-    top: 0,
-    maxHeight: "20vh",
-    minHeight: "10vh",
-    height: "10vh",
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
 
 const Home = () => {
-  const classes = useStyles();
-
   return (
     <div className="App">
       <header className="App-header">
@@ -76,7 +29,11 @@ const Home = () => {
               <Link to="/chat">Chat</Link>
             </Button>
             <Button color="inherit">
+
               <Link to="/exercises">Exercises</Link>
+
+              <Link to="/profile">Profile</Link>
+
             </Button>
           </Toolbar>
         </AppBar>
@@ -96,8 +53,11 @@ const Home = () => {
           <Exercises />
         </route>
       </Switch>
+      <route path="/profile"></route>
     </div>
   );
 };
 
 export default Home;
+
+//BOTTOM CODE IS ACTUALLY NAVBAR - this has been MIGRATED YO!
