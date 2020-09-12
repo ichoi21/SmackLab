@@ -14,9 +14,9 @@ import { Link, Switch } from "react-router-dom";
 import Chat from "../Chat/Chat";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
-import lgLogo from "../img/sl_md.png";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import Quiz from "../Quiz";
 
 import "../AppBar/AppBar.css";
 
@@ -79,6 +79,9 @@ const Home = () => {
             <Button color="white">
               <Link to="/chat">Chat</Link>
             </Button>
+            <Button color="white">
+              <Link to="/quiz">Quiz</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -93,9 +96,10 @@ const Home = () => {
         <route path="/chat">
           <Chat />
         </route>
+        <route path="/quiz">
+          <Quiz />
+        </route>
       </Switch>
-      <img className="App-logo z-depth-3" src={logo} />
-      <img src={lgLogo} />
     </div>
   );
 };
