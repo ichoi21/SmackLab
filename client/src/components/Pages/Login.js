@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { 
+import {
     makeStyles,
     Avatar,
     Button,
@@ -13,9 +13,64 @@ import {
     Box,
     Grid,
     Typography,
-    } from '@material-ui/core';
+} from '@material-ui/core';
+import { useAuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 const Login = () => {
+
+    const initialState = {
+        email: "",
+        password: "",
+        isSubmitting: false,
+        errorMessage: null
+    };
+
+    const { setAuth } = useAuthContext();
+
+    const [data, setData] = React.useState(initialState);
+    const handleInputChange = event => {
+        setData({
+            ...data,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const submitState = (e) => {
+        e.preventDefault();
+        loginUser(data).then((res) => {
+            // setState({
+            //   ...state,
+            //   [e.target.name]:e.target.value
+            // });
+            console.log(res.data.user)
+            setAuth({ type: "LOGIN", payload: { user: res.data.user, token: res.data.token } })
+        }).catch(err => {
+            console.log(err.response)
+        });
+    };
+
+    const loginUser = (state) => {
+        console.log(state);
+        return new Promise((resolve, reject) => {
+            axios({
+                method: "POST",
+                url: `http://localhost:5000/api/users/login`,
+                data: {
+                    email: state.email,
+                    password: state.password
+                },
+            })
+                .then((response) => {
+                    console.log(response);
+                    resolve(response);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+
     const useStyles = makeStyles((theme) => ({
         root: {
             height: '100vh',
@@ -60,7 +115,7 @@ const Login = () => {
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Log in
-                    </Typography>
+                </Typography>
                     <form className={classes.form} noValidate>
                         <TextField
                             variant="outlined"
@@ -70,6 +125,8 @@ const Login = () => {
                             id="email"
                             label="Email Address"
                             name="email"
+                            value={data.email}
+                            onChange={handleInputChange}
                             autoComplete="email"
                             autoFocus
                         />
@@ -82,26 +139,37 @@ const Login = () => {
                             label="Password"
                             type="password"
                             id="password"
+                            value={data.password}
+                            onChange={handleInputChange}
                             autoComplete="current-password"
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Remember me"
                         />
+                        {data.errorMessage && (
+                            <span className="form-error">{data.errorMessage}</span>
+                        )}
                         <Button
                             type="submit"
                             fullWidth
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            disabled={data.isSubmitting}
+                            onClick={submitState}
                         >
-                            Log In
+                            {data.isSubmitting ? (
+                                "Loading..."
+                            ) : (
+                                    "Login"
+                                )}
                         </Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
                                     Forgot password?
-                                </Link>
+                            </Link>
                             </Grid>
                             <Grid item>
                                 <Link href="#" variant="body2">
@@ -117,6 +185,5 @@ const Login = () => {
 }
 
 export default Login;
-    
 
-    
+
