@@ -17,6 +17,8 @@ import logo_sm from "../img/sl_md.png";
 import Login from "../Pages/Login";
 import Categories from "../Exercise/Categories";
 import Exercises from "../Exercise/Exercises";
+import Quiz from "../Quiz";
+import Exercises from "../Exercise/Categories";
 import Profile from "../Pages/Profile";
 import SignUp from "../Pages/SignUp";
 
@@ -86,6 +88,10 @@ const Home = () => {
             </Button>
             <Button color="white">
             <Link to="/profile">Profile</Link>
+              <Link to="/quiz">Quiz</Link>
+            </Button>
+            <Button color="white">
+              <Link to="/profile">Profile</Link>
             </Button>
           </Toolbar>
         </AppBar>
@@ -104,6 +110,9 @@ const Home = () => {
         <route path="/categories">
           <Categories />
           </route>
+        <route path="/quiz">
+          <Quiz />
+        </route>
         <route path="/profile">
           <Profile />
         </route>

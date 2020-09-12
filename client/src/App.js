@@ -10,6 +10,7 @@ import Header from "./components/AppBar";
 import Footer from "./components/Footer";
 import Categories from "./components/Exercise/Categories";
 import Exercises from "./components/Exercise/Exercises";
+import Profile from "./components/Pages/Profile";
 
 import "./App.css";
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/quiz" component={Quiz} />
           <Route path="/categories" component={Categories} />
           <Route path="/exercises" component={Exercises}/>
+          <Route path="/profile" component={Profile} />
         </Switch>
         <Footer />
       </div>
