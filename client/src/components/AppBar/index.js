@@ -3,9 +3,9 @@ import {
   Button,
   IconButton,
   makeStyles,
+  Palette,
   Toolbar,
   Typography,
-  Palette,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
@@ -15,8 +15,9 @@ import Chat from "../Chat/Chat";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
 import lgLogo from "../img/sl_md.png";
-import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import Profile from "../Pages/Profile";
+import SignUp from "../Pages/SignUp";
 
 import "../AppBar/AppBar.css";
 
@@ -79,6 +80,9 @@ const Home = () => {
             <Button color="white">
               <Link to="/chat">Chat</Link>
             </Button>
+            <Button color="white">
+              <Link to="/profile">Profile</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -92,6 +96,9 @@ const Home = () => {
         </route>
         <route path="/chat">
           <Chat />
+        </route>
+        <route path="/profile">
+          <Profile />
         </route>
       </Switch>
       <img className="App-logo z-depth-3" src={logo} />
