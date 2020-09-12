@@ -9,6 +9,7 @@ import Quiz from "./components/Quiz/";
 import Header from "./components/AppBar";
 import Footer from "./components/Footer";
 import Exercises from "./components/Exercise/Categories";
+import Profile from "./components/Pages/Profile";
 
 import "./App.css";
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/chat" component={Chat} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/exercises" component={Exercises} />
+          <Route path="/profile" component={Profile} />
         </Switch>
         <Footer />
       </div>
