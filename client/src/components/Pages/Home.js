@@ -15,7 +15,7 @@ import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
 import SignUp from "./SignUp";
 import Login from "./Login";
-
+import Exercises from "../../api/Exercises";
 import "../AppBar/AppBar.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -75,6 +75,9 @@ const Home = () => {
             <Button color="inherit">
               <Link to="/chat">Chat</Link>
             </Button>
+            <Button color="inherit">
+              <Link to="/exercises">Exercises</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -88,6 +91,9 @@ const Home = () => {
         </route>
         <route path="/chat">
           <Chat />
+        </route>
+        <route path="/exercises">
+          <Exercises />
         </route>
       </Switch>
     </div>

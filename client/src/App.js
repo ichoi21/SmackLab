@@ -10,6 +10,7 @@ import SignUp from "./components/Pages/SignUp";
 import Quiz from "./components/Quiz/Quiz";
 import Result from "./components/Quiz/Result";
 import Footer from "./components/Footer";
+import Exercises from "./api/Exercises";
 
 import "./App.css";
 
@@ -148,6 +149,7 @@ class App extends Component {
             <Route path="/" component={Home} />
             <Route path="/signup" component={SignUp} />
             <Route path="/chat" component={Chat} />
+            <Route path="/exercises" component={Exercises} />
           </Switch>
           <Footer />
         </div>
