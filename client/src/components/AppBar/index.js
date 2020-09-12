@@ -82,6 +82,8 @@ const Home = () => {
             </Button>
             <Button color="white">
               <Link to="/exercise">Exercises</Link>
+            </Button>
+            <Button color="white">
               <Link to="/profile">Profile</Link>
             </Button>
           </Toolbar>
@@ -100,7 +102,7 @@ const Home = () => {
         </route>
         <route path="/exercise">
           <Exercises />
-          </route>
+        </route>
         <route path="/profile">
           <Profile />
         </route>
