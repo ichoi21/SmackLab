@@ -6,7 +6,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="/">
         SmackLab
       </Link>{" "}
       {new Date().getFullYear()}
@@ -17,7 +17,7 @@ function Copyright() {
 
 const Footer = () => {
   return (
-    <div className="">
+    <div className="" id="Footer">
       <Copyright />
     </div>
   );
