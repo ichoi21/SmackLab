@@ -1,0 +1,13 @@
+
+
+.card{
+    transition: 0.2s all;
+    box-shadow: 4px 4px 4px gray; 
+    z-index: 0
+}
+
+.card:hover{
+    z-index: 1;
+    box-shadow: 12px 12px 12px gray;   
+    transform: scale(1.05);
+}
