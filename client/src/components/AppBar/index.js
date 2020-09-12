@@ -5,6 +5,7 @@ import {
   makeStyles,
   Toolbar,
   Typography,
+  Palette,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
@@ -69,13 +70,13 @@ const Home = () => {
               </Link>
             </Typography>
 
-            <Button color="white">
+            <Button color="text.primary">
               <Link to="/signup">Sign Up</Link>
             </Button>
             <Button color="white">
               <Link to="/login">Log In</Link>
             </Button>
-            <Button color="inherit">
+            <Button color="white">
               <Link to="/chat">Chat</Link>
             </Button>
           </Toolbar>
