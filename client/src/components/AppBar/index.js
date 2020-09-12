@@ -18,7 +18,6 @@ import Login from "../Pages/Login";
 import Categories from "../Exercise/Categories";
 import Exercises from "../Exercise/Exercises";
 import Quiz from "../Quiz";
-import Exercises from "../Exercise/Categories";
 import Profile from "../Pages/Profile";
 import SignUp from "../Pages/SignUp";
 
@@ -87,7 +86,6 @@ const Home = () => {
               <Link to="/categories">Exercises</Link>
             </Button>
             <Button color="white">
-            <Link to="/profile">Profile</Link>
               <Link to="/quiz">Quiz</Link>
             </Button>
             <Button color="white">
