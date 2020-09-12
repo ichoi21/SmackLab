@@ -18,6 +18,14 @@ function Copyright() {
 const Footer = () => {
   return (
     <div className="" id="Footer">
+      <div>
+        <Link color="inherit" href="/About">
+          About Us
+        </Link>{" "}
+        <Link color="inherit" href="/Contact">
+          Contact
+        </Link>{" "}
+      </div>
       <Copyright />
     </div>
   );
