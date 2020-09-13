@@ -14,11 +14,12 @@ import Footer from "./components/Footer";
 import Categories from "./components/Exercise/Categories";
 import Exercises from "./components/Exercise/Exercises";
 import Profile from "./components/Pages/Profile";
+import Contact from "./components/Pages/Contact";
+import About from "./components/Pages/About";
 
 import "./App.css";
 
 const App = () => {
-
   const { auth } = useAuthContext();
 
   return (
@@ -33,8 +34,10 @@ const App = () => {
           <Route path="/chat" component={Chat} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/categories" component={Categories} />
-          <Route path="/exercises" component={Exercises}/>
+          <Route path="/exercises" component={Exercises} />
           <Route path="/profile" component={Profile} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/about" component={About} />
         </Switch>
         <Footer />
       </div>

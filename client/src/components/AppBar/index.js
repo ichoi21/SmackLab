@@ -23,6 +23,8 @@ import SignUp from "../Pages/SignUp";
 import Calculator from "../Calculator";
 
 import "../AppBar/AppBar.css";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,6 +97,12 @@ const Home = () => {
             <Button color="white">
               <Link to="/profile">Profile</Link>
             </Button>
+            <Button color="white">
+              <Link to="/about">About</Link>
+            </Button>
+            <Button color="white">
+              <Link to="/contact">Contact</Link>
+            </Button>
           </Toolbar>
         </AppBar>
       </header>
@@ -123,6 +131,12 @@ const Home = () => {
         </route>
         <route path="/calculator">
           <Calculator />
+        </route>
+        <route path="/about">
+          <About />
+        </route>
+        <route path="/contact">
+          <Contact />
         </route>
       </Switch>
     </div>
