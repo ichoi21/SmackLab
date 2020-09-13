@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Range2 extends Component {
+class ToggleSwitch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class Range2 extends Component {
 
   render() {
     return (
-      <div className="range">
+      <div className="toggle">
         <input
           type="range"
           value={this.state.value}
@@ -36,4 +36,4 @@ class Range2 extends Component {
   }
 }
 
-export default Range2;
+export default ToggleSwitch;

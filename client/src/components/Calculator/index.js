@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./calc.css";
 import Range from "./Range";
-import Range2 from "./ToggleSwitch";
+import ToggleSwitch from "./ToggleSwitch";
 import Output from "./Output";
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       age: 28,
-      gender: "Male or Female",
+      genderClass: "Male or Female",
       height: 171,
       weight: 73,
       bmi: 22.49,
@@ -24,7 +24,10 @@ class App extends Component {
   };
 
   genderChange = (gender) => {
-    this.setState({ gender: gender }, this.setBFP);
+    this.setState(
+      { gender: gender, genderClass: this.getGender(gender) },
+      this.setBFP
+    );
   };
 
   heightChange = (height) => {
@@ -33,6 +36,11 @@ class App extends Component {
 
   weightChange = (weight) => {
     this.setState({ weight: weight }, this.setBmi);
+  };
+
+  getGender = (gender) => {
+    if ((gender = 0)) return "Female";
+    if ((gender = 1)) return "Male";
   };
 
   // calc of BMI (weight_kg)/(Height_meters ^2)
@@ -54,7 +62,8 @@ class App extends Component {
   // calc of BFP (per Jackson 2002)
   setBFP = (bmi) => {
     let bfp =
-      1.39 * bmi + 0.16 * this.state.age - 10.34 * this.state.gender - 9;
+      (1.39 * bmi + 0.16 * this.state.age - 10.34 * this.state.gender - 9) /
+      100;
     this.setState({ bfp: bfp }, this.setBMR);
   };
 
@@ -75,8 +84,11 @@ class App extends Component {
           </div>
           <div>
             <label>Gender</label>
-            <p>Male | Female</p>
-            <Range2 value={this.state.gender} onChange={this.genderChange} />
+            <p>Female | Male</p>
+            <ToggleSwitch
+              value={this.state.gender}
+              onChange={this.genderChange}
+            />
           </div>
           <div>
             <label>Height</label>
