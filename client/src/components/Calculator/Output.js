@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Grid, Paper, makeStyles } from "@material-ui/core";
 
 class Output extends Component {
   // convert cm into ft
@@ -16,26 +17,49 @@ class Output extends Component {
   };
 
   render() {
+    let age = this.props.data.age;
+    let gender = this.props.data.gender;
     let height = this.props.data.height;
     let weight = this.props.data.weight;
     let bmi = this.props.data.bmi;
+    let bfp = this.props.data.bfp;
     let bmiClass = this.props.data.bmiClass;
-    // conversions
+    let bmr = this.props.data.bmr;
+    // conversions from imperial to metric
     let heightFeet = this.toFeet(height);
     let pounds = this.toLbs(weight);
 
     return (
       <div className="output">
-        <h3>
-          {height}cm
-          <span className="imperial"> {heightFeet}</span>
-        </h3>
-        <h3>
-          {weight}kg
-          <span className="imperial"> {pounds}lbs</span>
-        </h3>
-        <h3>{bmi}</h3>
-        <h3>{bmiClass}</h3>
+        <Grid container spacing={1}>
+          <Grid item md={6} className="col">
+            Age:{"\n"} {age} yrs
+          </Grid>
+          <Grid item md={6} className="col">
+            {gender}
+          </Grid>
+          <Grid item md={6} className="col">
+            Height:{"\n"} {heightFeet}
+            <span className="metric"> {height} cm</span>
+          </Grid>
+          <Grid item md={6} className="col">
+            Weight:{"\n"}
+            {pounds}lbs
+            <span className="metric"> {weight}kg</span>
+          </Grid>
+          <Grid item md={6} className="col">
+            BMI: {bmi} <span className=""> body mass index</span>
+          </Grid>
+          <Grid item md={6} className="col">
+            BFP: {bfp}% <span className=""> body fat %</span>
+          </Grid>
+          <Grid item md={6} className="col">
+            Level: {bmiClass}
+          </Grid>
+          <Grid item md={6} className="col">
+            BMR: {bmr} <span className=""> basal metabolic rate</span>
+          </Grid>
+        </Grid>
       </div>
     );
   }
