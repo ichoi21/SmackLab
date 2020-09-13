@@ -18,6 +18,7 @@ import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 
 import "./App.css";
+import Fab from "@material-ui/core/Fab";
 
 const App = () => {
   const { auth } = useAuthContext();
@@ -39,6 +40,10 @@ const App = () => {
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />
         </Switch>
+        {/* Floating Button for chatter */}
+        <Fab color="secondary" variant="extended" aria-label="chat">
+          {"Let's Chat..."}
+        </Fab>
         <Footer />
       </div>
     </Router>
