@@ -28,6 +28,12 @@ class App extends Component {
       { gender: gender, genderClass: this.getGender(gender) },
       this.setBFP
     );
+    console.log("Gender: " + this.state.gender);
+  };
+
+  getGender = (gender) => {
+    if (gender < 1) return "Female";
+    if (gender >= 1) return "Male";
   };
 
   heightChange = (height) => {
@@ -36,11 +42,6 @@ class App extends Component {
 
   weightChange = (weight) => {
     this.setState({ weight: weight }, this.setBmi);
-  };
-
-  getGender = (gender) => {
-    if ((gender = 0)) return "Female";
-    if ((gender = 1)) return "Male";
   };
 
   // calc of BMI (weight_kg)/(Height_meters ^2)
@@ -60,17 +61,26 @@ class App extends Component {
   };
 
   // calc of BFP (per Jackson 2002)
-  setBFP = (bmi) => {
-    let bfp =
-      (1.39 * bmi + 0.16 * this.state.age - 10.34 * this.state.gender - 9) /
-      100;
+  setBFP = () => {
+    let bfp = Math.round(
+      ((1.39 * this.state.bmi +
+        0.16 * this.state.age -
+        10.34 * this.state.gender -
+        9) *
+        100) /
+        100
+    );
     this.setState({ bfp: bfp }, this.setBMR);
   };
 
   // calc of BMR (per Katch-McArdle 2006)
-  setBMR = (bfp) => {
-    let bmr = 370 + 21.6 * (this.state.weight * (1 - bfp));
+  setBMR = () => {
+    let bmr =
+      Math.round(21.6 * (this.state.weight * (1 - this.state.bfp / 100))) + 370;
     this.setState({ bmr: bmr });
+    console.log("BFP:" + this.state.bfp);
+    console.log("BMR:" + this.state.bmr);
+    console.log(this.state.weight + "kg");
   };
 
   render() {
