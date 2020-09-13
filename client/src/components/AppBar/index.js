@@ -20,6 +20,7 @@ import Exercises from "../Exercise/Exercises";
 import Quiz from "../Quiz";
 import Profile from "../Pages/Profile";
 import SignUp from "../Pages/SignUp";
+import Calculator from "../Calculator";
 
 import "../AppBar/AppBar.css";
 
@@ -86,6 +87,9 @@ const Home = () => {
               <Link to="/categories">Exercises</Link>
             </Button>
             <Button color="white">
+              <Link to="/calculator">Calculator</Link>
+            </Button>
+            <Button color="white">
               <Link to="/quiz">Quiz</Link>
             </Button>
             <Button color="white">
@@ -107,7 +111,7 @@ const Home = () => {
         </route>
         <route path="/categories">
           <Categories />
-          </route>
+        </route>
         <route path="/quiz">
           <Quiz />
         </route>
@@ -115,7 +119,10 @@ const Home = () => {
           <Profile />
         </route>
         <route path="/exercises">
-          <Exercises/>
+          <Exercises />
+        </route>
+        <route path="/calculator">
+          <Calculator />
         </route>
       </Switch>
     </div>
