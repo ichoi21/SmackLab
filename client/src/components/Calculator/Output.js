@@ -21,6 +21,7 @@ class Output extends Component {
     let gender = this.props.data.genderClass;
     let height = this.props.data.height;
     let weight = this.props.data.weight;
+    let tdee = this.props.data.tdee;
     let bmi = this.props.data.bmi;
     let bfp = this.props.data.bfp;
     let bmiClass = this.props.data.bmiClass;
@@ -62,6 +63,10 @@ class Output extends Component {
           </Grid>
           <Grid item md={6} className="col">
             BMR: {bmr} <span className=""> basal metabolic rate</span>
+          </Grid>
+          <Grid item md={12} className="col">
+            TDEE: {tdee}cal
+            <span className=""> per day</span>
           </Grid>
         </Grid>
       </div>

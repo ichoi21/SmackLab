@@ -4,6 +4,10 @@ input[type="range"] {
   margin: 20px 0;
   width: 60%;
 }
+input[id="switch"] {
+  -webkit-appearance: none;
+  width: 20%;
+}
 input[type="range"]:focus {
   outline: none;
 }

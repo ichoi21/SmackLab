@@ -23,14 +23,17 @@ class ToggleSwitch extends Component {
   render() {
     return (
       <div className="toggle">
+        Male{"\n"}
         <input
           type="range"
+          id="switch"
           value={this.state.value}
           min={this.props.min}
           max={this.props.max}
           step={this.props.step}
           onChange={this.onChange}
         />
+        {"\n"}Female
       </div>
     );
   }
