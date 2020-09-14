@@ -2,9 +2,11 @@ import React from "react";
 import lgLogo from "../img/sl_md.png";
 import logo from "../img/logo1.png";
 
+import "../../App.css";
+
 const Home = () => {
   return (
-    <div>
+    <div className="App-header">
       <img className="App-logo z-depth-3" src={logo} />
       <img src={lgLogo} />
       <h3>Hello from Home.js (aka Landing)</h3>
