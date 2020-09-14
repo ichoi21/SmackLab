@@ -18,13 +18,15 @@ class Output extends Component {
 
   render() {
     let age = this.props.data.age;
-    let gender = this.props.data.gender;
+    let gender = this.props.data.genderClass;
     let height = this.props.data.height;
     let weight = this.props.data.weight;
+    let tdee = this.props.data.tdee;
     let bmi = this.props.data.bmi;
     let bfp = this.props.data.bfp;
     let bmiClass = this.props.data.bmiClass;
     let bmr = this.props.data.bmr;
+
     // conversions from imperial to metric
     let heightFeet = this.toFeet(height);
     let pounds = this.toLbs(weight);
@@ -32,6 +34,9 @@ class Output extends Component {
     return (
       <div className="output">
         <Grid container spacing={1}>
+          <Grid item md={12} className="title">
+            <h4>Results</h4>
+          </Grid>
           <Grid item md={6} className="col">
             Age:{"\n"} {age} yrs
           </Grid>
@@ -58,6 +63,10 @@ class Output extends Component {
           </Grid>
           <Grid item md={6} className="col">
             BMR: {bmr} <span className=""> basal metabolic rate</span>
+          </Grid>
+          <Grid item md={12} className="col">
+            TDEE: {tdee}cal
+            <span className=""> per day</span>
           </Grid>
         </Grid>
       </div>

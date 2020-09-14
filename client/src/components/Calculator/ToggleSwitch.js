@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Range2 extends Component {
+class ToggleSwitch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,18 +22,21 @@ class Range2 extends Component {
 
   render() {
     return (
-      <div className="range">
+      <div className="toggle">
+        Male{"\n"}
         <input
           type="range"
+          id="switch"
           value={this.state.value}
           min={this.props.min}
           max={this.props.max}
           step={this.props.step}
           onChange={this.onChange}
         />
+        {"\n"}Female
       </div>
     );
   }
 }
 
-export default Range2;
+export default ToggleSwitch;

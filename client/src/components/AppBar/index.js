@@ -11,20 +11,24 @@ import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
 import { Link, Switch } from "react-router-dom";
 
-import Chat from "../Chat/Chat";
+//images
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
+
+//pages
+import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import Chat from "../Chat/Chat";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
+
 import Categories from "../Exercise/Categories";
 import Exercises from "../Exercise/Exercises";
 import Quiz from "../Quiz";
 import Profile from "../Pages/Profile";
-import SignUp from "../Pages/SignUp";
 import Calculator from "../Calculator";
-
+//styles
 import "../AppBar/AppBar.css";
-import About from "../Pages/About";
-import Contact from "../Pages/Contact";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = () => {
+const Header = () => {
   const classes = useStyles();
 
   return (
@@ -76,31 +80,31 @@ const Home = () => {
               </Link>
             </Typography>
 
-            <Button color="text.primary">
+            <Button>
               <Link to="/signup">Sign Up</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/login">Log In</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/chat">Chat</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/categories">Exercises</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/calculator">Calculator</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/quiz">Quiz</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/profile">Profile</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/about">About</Link>
             </Button>
-            <Button color="white">
+            <Button>
               <Link to="/contact">Contact</Link>
             </Button>
           </Toolbar>
@@ -143,4 +147,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Header;

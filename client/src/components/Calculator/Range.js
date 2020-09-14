@@ -16,7 +16,7 @@ class Range extends Component {
 
   static defaultProps = {
     min: 0,
-    max: 245,
+    max: 225,
     step: 1,
   };
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./calc.css";
 import Range from "./Range";
-import Range2 from "./ToggleSwitch";
+import ToggleSwitch from "./ToggleSwitch";
 import Output from "./Output";
 
 class App extends Component {
@@ -9,13 +9,15 @@ class App extends Component {
     super(props);
     this.state = {
       age: 28,
-      gender: "Male or Female",
+      genderClass: "Male or Female",
       height: 171,
       weight: 73,
+      activity: 10,
       bmi: 22.49,
       bfp: 0,
       bmiClass: "Normal",
       bmr: 0,
+      tdee: 0,
     };
   }
 
@@ -24,7 +26,16 @@ class App extends Component {
   };
 
   genderChange = (gender) => {
-    this.setState({ gender: gender }, this.setBFP);
+    this.setState(
+      { gender: gender, genderClass: this.getGender(gender) },
+      this.setBFP
+    );
+    console.log("Gender: " + this.state.gender);
+  };
+
+  getGender = (gender) => {
+    if (gender < 1) return "Female";
+    if (gender >= 1) return "Male";
   };
 
   heightChange = (height) => {
@@ -33,6 +44,10 @@ class App extends Component {
 
   weightChange = (weight) => {
     this.setState({ weight: weight }, this.setBmi);
+  };
+
+  activityChange = (activity) => {
+    this.setState({ activity: activity }, this.tdee);
   };
 
   // calc of BMI (weight_kg)/(Height_meters ^2)
@@ -52,16 +67,44 @@ class App extends Component {
   };
 
   // calc of BFP (per Jackson 2002)
-  setBFP = (bmi) => {
-    let bfp =
-      1.39 * bmi + 0.16 * this.state.age - 10.34 * this.state.gender - 9;
+  setBFP = () => {
+    let bfp = Math.round(
+      ((1.39 * this.state.bmi +
+        0.16 * this.state.age -
+        10.34 * this.state.gender -
+        9) *
+        100) /
+        100
+    );
     this.setState({ bfp: bfp }, this.setBMR);
   };
 
   // calc of BMR (per Katch-McArdle 2006)
-  setBMR = (bfp) => {
-    let bmr = 370 + 21.6 * (this.state.weight * (1 - bfp));
-    this.setState({ bmr: bmr });
+  setBMR = () => {
+    let bmr =
+      Math.round(21.6 * (this.state.weight * (1 - this.state.bfp / 100))) + 370;
+    this.setState({ bmr: bmr }, this.setTDEE);
+    console.log("BFP:" + this.state.bfp);
+    console.log("BMR:" + this.state.bmr);
+    console.log(this.state.weight + "kg");
+  };
+
+  setTDEE = () => {
+    // let activityLevel = 1.2;
+
+    if (this.state.activity > 14) {
+      activityLevel = 1.9;
+    } else if (this.state.activity > 8) {
+      var activityLevel = 1.725;
+    } else if (this.state.activity > 6) {
+      var activityLevel = 1.55;
+    } else if (this.state.activity > 3) {
+      var activityLevel = 1.375;
+    }
+
+    const tdee = Math.round(this.state.bmr * activityLevel);
+    this.setState({ tdee: tdee });
+    console.log(activityLevel);
   };
 
   render() {
@@ -75,8 +118,10 @@ class App extends Component {
           </div>
           <div>
             <label>Gender</label>
-            <p>Male | Female</p>
-            <Range2 value={this.state.gender} onChange={this.genderChange} />
+            <ToggleSwitch
+              value={this.state.gender}
+              onChange={this.genderChange}
+            />
           </div>
           <div>
             <label>Height</label>
@@ -85,6 +130,14 @@ class App extends Component {
           <div>
             <label>Weight</label>
             <Range value={this.state.weight} onChange={this.weightChange} />
+          </div>
+          <div>
+            <label>Activity</label>
+            <Range value={this.state.activity} onChange={this.activityChange} />
+            <span>
+              {this.state.activity}
+              {"+"} hrs/week
+            </span>
           </div>
         </form>
         <Output data={this.state} />
