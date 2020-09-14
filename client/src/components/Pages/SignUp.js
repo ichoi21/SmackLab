@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import {
   Avatar,
@@ -11,6 +11,8 @@ import {
   makeStyles,
   Container,
 } from "@material-ui/core";
+import axios from "axios";
+import { useAuthContext } from "../../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,6 +35,58 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp() {
+  const [state, setState] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    password2: '',
+  });
+
+  const { auth, setAuth } = useAuthContext();
+
+  const editState = (e) => {
+    setState({...state, [e.target.name]:e.target.value})
+  }
+
+  const submitState = (e) => {
+    e.preventDefault();
+    createUser(state).then((res) => {
+      // setState({
+      //   ...state,
+      //   [e.target.name]:e.target.value
+      // });
+      console.log(res.data.user)
+      setAuth({type: "LOGIN", payload: { user: res.data.user, token: res.data.token }})
+    }).catch(err=>{
+      console.log(err.response)
+    });
+  };
+
+  const createUser = (state) => {
+    console.log(state);
+    return new Promise((resolve, reject) => {
+      axios({
+        method: "POST",
+        url: `http://localhost:5000/api/users/register`,
+        data: {
+          first_name: state.first_name,
+          last_name: state.last_name,
+          email: state.email,
+          password: state.password,
+          password2: state.password2
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  };
+
   const classes = useStyles();
 
   return (
@@ -45,17 +99,18 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={submitState} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="first_name"
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
                 label="First Name"
+                onChange={editState}
                 autoFocus
               />
             </Grid>
@@ -66,7 +121,8 @@ export default function SignUp() {
                 fullWidth
                 id="lastName"
                 label="Last Name"
-                name="lastName"
+                name="last_name"
+                onChange={editState}
                 autoComplete="lname"
               />
             </Grid>
@@ -78,6 +134,7 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
+                onChange={editState}
                 autoComplete="email"
               />
             </Grid>
@@ -90,6 +147,20 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
+                onChange={editState}
+                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="password2"
+                label="Verify Password"
+                type="password"
+                id="password2"
+                onChange={editState}
                 autoComplete="current-password"
               />
             </Grid>

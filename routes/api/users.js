@@ -19,7 +19,7 @@ router.post("/register", (req, res) => {
   // Form validation
 
   const { errors, isValid } = validateRegisterInput(req.body);
-
+  console.log(isValid);
   // Check validation
   if (!isValid) {
     return res.status(400).json(errors);
@@ -38,13 +38,37 @@ router.post("/register", (req, res) => {
 
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
+        if (err) return res.status(500).json({msg: err})
+        bcrypt.hash(newUser.password, salt, (hashErr, hash) => {
+          if (hashErr) return res.status(500).json({msg: hashError});
           newUser.password = hash;
           newUser
             .save()
-            .then((user) => res.json(user))
-            .catch((err) => console.log(err));
+            .then((user) => {
+              console.log("saved user", user)
+              jwt.sign(
+                {_id: user._id},
+                keys.secretOrKey,
+                {
+                  expiresIn: 31556926, // 1 year in seconds
+                },
+                (jwtError, token) => {
+                  if (jwtError) {
+                    return res.status(500).json({msg: jwtError})
+                  }
+                  console.log("done finally", user)
+                  res.json({
+                    success: true,
+                    user: {email: user.email, first_name: user.first_name, last_name: user.last_name},
+                    token: "Bearer " + token,
+                  });
+                }
+              );
+            })
+            .catch((err) => {
+              console.log(err); 
+              return res.status(500).json({msg: err}) 
+            });
         });
       });
     }
@@ -80,21 +104,23 @@ router.post("/login", (req, res) => {
         // User matched
         // Create JWT Payload
         const payload = {
-          id: user.id,
+          email: user.email,
           first_name: user.first_name,
           last_name: user.last_name,
         };
 
         // Sign token
         jwt.sign(
-          payload,
+          {_id: user._id},
           keys.secretOrKey,
           {
             expiresIn: 31556926, // 1 year in seconds
           },
           (err, token) => {
+            if (err)return res.status(500).json({msg: err}) 
             res.json({
               success: true,
+              user: payload,
               token: "Bearer " + token,
             });
           }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import AuthProvider from "../src/context/AuthContext";
+import { AuthProvider } from "../src/context/AuthContext";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
