@@ -1,5 +1,6 @@
 import React from 'react'
 import Categories from './Categories';
+
 const Exercises = () => {
     console.log(Categories);
     return (
