@@ -13,7 +13,7 @@ import Header from "./components/AppBar";
 import Footer from "./components/Footer";
 import Categories from "./components/Exercise/Categories";
 import Exercises from "./components/Exercise/Exercises";
-import Profile from "./components/Pages/Profile";
+import Profile from "./components/Profile/Profile";
 import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 
