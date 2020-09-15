@@ -25,7 +25,7 @@ import Contact from "../Pages/Contact";
 import Categories from "../Exercise/Categories";
 import Exercises from "../Exercise/Exercises";
 import Quiz from "../Quiz";
-import Profile from "../Pages/Profile";
+import Profile from "../Profile/Profile";
 import Calculator from "../Calculator";
 //styles
 import "../AppBar/AppBar.css";
