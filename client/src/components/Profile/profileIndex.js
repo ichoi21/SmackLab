@@ -7,7 +7,7 @@ class profileIndex extends Component {
   render() {
     return (
       <div className="profileIndex">
-        <Avatar>SL</Avatar>
+        <h1>Profile</h1>
       </div>
     );
   }
