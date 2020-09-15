@@ -1,18 +1,42 @@
 import React, { Component } from "react";
 import "./calc.css";
 import Range from "./Range";
+import ToggleSwitch from "./ToggleSwitch";
 import Output from "./Output";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      age: 28,
+      genderClass: "Male or Female",
       height: 171,
       weight: 73,
+      activity: 10,
       bmi: 22.49,
-      bmiClass: "Level: Normal",
+      bfp: 0,
+      bmiClass: "Normal",
+      bmr: 0,
+      tdee: 0,
     };
   }
+
+  ageChange = (age) => {
+    this.setState({ age: age }, this.setBFP);
+  };
+
+  genderChange = (gender) => {
+    this.setState(
+      { gender: gender, genderClass: this.getGender(gender) },
+      this.setBFP
+    );
+    console.log("Gender: " + this.state.gender);
+  };
+
+  getGender = (gender) => {
+    if (gender < 1) return "Female";
+    if (gender >= 1) return "Male";
+  };
 
   heightChange = (height) => {
     this.setState({ height: height }, this.setBmi);
@@ -22,6 +46,11 @@ class App extends Component {
     this.setState({ weight: weight }, this.setBmi);
   };
 
+  activityChange = (activity) => {
+    this.setState({ activity: activity }, this.tdee);
+  };
+
+  // calc of BMI (weight_kg)/(Height_meters ^2)
   setBmi = () => {
     let bmi = (
       (this.state.weight / this.state.height / this.state.height) *
@@ -31,17 +60,69 @@ class App extends Component {
   };
 
   getBmiClass = (bmi) => {
-    if (bmi < 18.5) return "Level: Underweight";
-    if (bmi >= 18.5 && bmi <= 24.9) return "Level: Normal";
-    if (bmi >= 25 && bmi <= 29.9) return "Level: Overweight";
-    if (bmi >= 30) return "Level: Obese";
+    if (bmi < 18.5) return "Underweight";
+    if (bmi >= 18.5 && bmi <= 24.9) return "Normal";
+    if (bmi >= 25 && bmi <= 29.9) return "Overweight";
+    if (bmi >= 30) return "Obese";
+  };
+
+  // calc of BFP (per Jackson 2002)
+  setBFP = () => {
+    let bfp = Math.round(
+      ((1.39 * this.state.bmi +
+        0.16 * this.state.age -
+        10.34 * this.state.gender -
+        9) *
+        100) /
+        100
+    );
+    this.setState({ bfp: bfp }, this.setBMR);
+  };
+
+  // calc of BMR (per Katch-McArdle 2006)
+  setBMR = () => {
+    let bmr =
+      Math.round(21.6 * (this.state.weight * (1 - this.state.bfp / 100))) + 370;
+    this.setState({ bmr: bmr }, this.setTDEE);
+    console.log("BFP:" + this.state.bfp);
+    console.log("BMR:" + this.state.bmr);
+    console.log(this.state.weight + "kg");
+  };
+
+  setTDEE = () => {
+    // let activityLevel = 1.2;
+
+    if (this.state.activity > 14) {
+      activityLevel = 1.9;
+    } else if (this.state.activity > 8) {
+      var activityLevel = 1.725;
+    } else if (this.state.activity > 6) {
+      var activityLevel = 1.55;
+    } else if (this.state.activity > 3) {
+      var activityLevel = 1.375;
+    }
+
+    const tdee = Math.round(this.state.bmr * activityLevel);
+    this.setState({ tdee: tdee });
+    console.log(activityLevel);
   };
 
   render() {
     return (
       <div className="container">
-        <h1>BMI Calculator</h1>
+        <h2>Body Calculator</h2>
         <form>
+          <div>
+            <label>Age</label>
+            <Range value={this.state.age} onChange={this.ageChange} />
+          </div>
+          <div>
+            <label>Gender</label>
+            <ToggleSwitch
+              value={this.state.gender}
+              onChange={this.genderChange}
+            />
+          </div>
           <div>
             <label>Height</label>
             <Range value={this.state.height} onChange={this.heightChange} />
@@ -49,6 +130,14 @@ class App extends Component {
           <div>
             <label>Weight</label>
             <Range value={this.state.weight} onChange={this.weightChange} />
+          </div>
+          <div>
+            <label>Activity</label>
+            <Range value={this.state.activity} onChange={this.activityChange} />
+            <span>
+              {this.state.activity}
+              {"+"} hrs/week
+            </span>
           </div>
         </form>
         <Output data={this.state} />
