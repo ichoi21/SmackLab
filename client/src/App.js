@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 // import AuthReducer from "./reducers/authReducer";
 // import useReducer from "./reducers/useReducer";
@@ -29,7 +29,7 @@ const App = () => {
         <Header />
         {!auth.isAuthenticated ? <Login /> : <Home />}
         <Switch>
-          <Route path="/" component={Home} />
+          {/* <Route path="/" component={Home} /> */}
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
           <Route path="/chat" component={Chat} />
