@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core';
 import { useAuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
 
 const Login = () => {
 
@@ -35,6 +35,8 @@ const Login = () => {
             [event.target.name]: event.target.value
         });
     };
+
+    let history = useHistory();
     
     const submitState = (e) => {
         e.preventDefault();
@@ -45,6 +47,7 @@ const Login = () => {
             // });
             console.log(res.data.user)
             setAuth({ type: "LOGIN", payload: { user: res.data.user, token: res.data.token } });
+            history.push("/home");
         }).catch(err => {
             console.log(err.response)
         });

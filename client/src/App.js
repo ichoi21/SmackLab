@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 // import AuthReducer from "./reducers/authReducer";
@@ -22,11 +22,21 @@ import "./App.css";
 import Fab from "@material-ui/core/Fab";
 
 const App = () => {
-  const { auth } = useAuthContext();
+  const { auth, setAuth } = useAuthContext();
+
+  useEffect(async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
+    }
+    console.log(auth);
+    return token;
+  }, [])
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
-      auth.isAuthenticated === true
+      localStorage.getItem('token') !== null
+      // auth.isAuthenticated === true
         ? <Component {...props} />
         : <Redirect to='/login' />
     )} />
