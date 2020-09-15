@@ -15,6 +15,7 @@ import {
 } from '@material-ui/core';
 import { useAuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
 
@@ -34,7 +35,7 @@ const Login = () => {
             [event.target.name]: event.target.value
         });
     };
-
+    
     const submitState = (e) => {
         e.preventDefault();
         loginUser(data).then((res) => {
@@ -43,7 +44,7 @@ const Login = () => {
             //   [e.target.name]:e.target.value
             // });
             console.log(res.data.user)
-            setAuth({ type: "LOGIN", payload: { user: res.data.user, token: res.data.token } })
+            setAuth({ type: "LOGIN", payload: { user: res.data.user, token: res.data.token } });
         }).catch(err => {
             console.log(err.response)
         });
@@ -166,7 +167,7 @@ const Login = () => {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                            <Link href="#" variant="body2">
                                     Forgot password?
                             </Link>
                             </Grid>
