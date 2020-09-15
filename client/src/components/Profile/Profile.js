@@ -1,27 +1,44 @@
-import React, { Component, Profiler } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
-import "./Profile";
+import React, { useState } from "react";
 
-class Profile extends Component {
-  render() {
-    return (
-      <div className="profile">
-        <div className="row">
-          <div className="col s12 m7">
-            <div className="card">
-              <div className="card-image">
-                <Avatar></Avatar>
-                <span className="card-title"></span>
-              </div>
-              <div className="card-content"></div>
-              <div className="card-action"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+function Profile() {
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const uploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "smacklab");
+    setLoading(true);
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dsczimqye/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
     );
-  }
+    const file = await res.json();
+
+    setImage(file.secure_url);
+    setLoading(false);
+  };
+
+  return (
+    <div className="App">
+      <h1>Upload Image</h1>
+      <input
+        type="file"
+        name="file"
+        placeholder="Upload an image"
+        onChange={uploadImage}
+      />
+      {loading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <img src={image} style={{ width: "300px" }} />
+      )}
+    </div>
+  );
 }
 
 export default Profile;
