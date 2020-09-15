@@ -12,7 +12,7 @@ import Quiz from "./components/Quiz/";
 import Header from "./components/AppBar";
 import Footer from "./components/Footer";
 import Categories from "./components/Exercise/Categories";
-import Exercises from "./components/Exercise/Exercises";
+import ExercisesList from "./components/Exercise/ExerciseList";
 import Profile from "./components/Profile/Profile";
 import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
@@ -55,7 +55,7 @@ const App = () => {
           <Route exact path="/chat" component={Chat} />
           <PrivateRoute exact path="/quiz" component={Quiz} />
           <PrivateRoute exact path="/categories" component={Categories} />
-          <PrivateRoute exact path="/exercises" component={Exercises} />
+          <PrivateRoute exact path="/exercises" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />

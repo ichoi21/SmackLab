@@ -1,5 +1,5 @@
 import React from 'react';
-import './styling/video.css';
+import '../styling/video.css';
 
 const VideoItem = ({video , handleVideoSelect}) => {
     return (

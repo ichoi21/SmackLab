@@ -1,8 +1,9 @@
 import React from 'react';
-import SearchBar from './Searchbar';
+import ExerciseList from './ExerciseList';
+import SearchBar from './searchbar/Searchbar';
 import youtube from './api/youtube';
-import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
+import VideoList from './searchbar/VideoList';
+import VideoDetail from './searchbar/VideoDetail';
 
 class Exercises extends React.Component {
     state = {
@@ -39,6 +40,7 @@ class Exercises extends React.Component {
                         </div>
                     </div>
                 </div>
+                
             </div>
         )
     }

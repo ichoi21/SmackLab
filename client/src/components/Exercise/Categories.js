@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import "./Categories.css"
+import "./styling/Categories.css";
 import pic0 from "../../images/pic0.jpg";
 import pic1 from "../../images/pic1.jpg"
 import pic2 from "../../images/pic2.jpg"
