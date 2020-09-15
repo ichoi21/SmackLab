@@ -41,7 +41,6 @@ class Exercises extends React.Component {
                     </div>
                 </div>
                 
-            <ExerciseList/>
             </div>
         )
     }

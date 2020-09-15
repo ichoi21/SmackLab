@@ -1,22 +1,23 @@
-import { Router } from 'express';
 import React from 'react'
-import {useParams} from 'react-router-dom';
-import {BrowserRouter, Switch, Link, Route} from 'react-router-dom';
+import Exercise from './Exercises';
+
+import {BrowserRouter as Router, Switch, Link, Route, useParams} from 'react-router-dom';
 const ExerciseList = () => {
-    const {category} = useParams();
+
 
     function Category() {
-        return (<h1>This is {category} category</h1>)
+        let {category} = useParams();
+        return <div>This is {category} category</div>
     }
     return (
         <div>
-            <BrowserRouter>
+            <Router>
                 <Switch>
-                    <Route to="/exercises/:category">
-
+                    <Route path="/exercises/:category">
+                        <Category/>
                     </Route>
                 </Switch>
-            </BrowserRouter>
+            </Router>
         </div>
     )
 }
