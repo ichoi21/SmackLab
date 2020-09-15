@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import {
   Avatar,
@@ -57,7 +57,10 @@ export default function SignUp() {
       //   [e.target.name]:e.target.value
       // });
       console.log(res.data.user)
-      setAuth({type: "LOGIN", payload: { user: res.data.user, token: res.data.token }})
+      setAuth({type: "LOGIN", payload: { user: res.data.user, token: res.data.token }});
+      let token = res.data.token;
+      localStorage.setItem("token", "Bearer" + token);
+      (this.$router.push({name:'HomePage'}));
     }).catch(err=>{
       console.log(err.response)
     });

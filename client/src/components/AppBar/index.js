@@ -25,19 +25,20 @@ import Contact from "../Pages/Contact";
 import Categories from "../Exercise/Categories";
 import Exercises from "../Exercise/Exercises";
 import Quiz from "../Quiz";
-import Profile from "../Pages/Profile";
+import Profile from "../Profile/Profile";
 import Calculator from "../Calculator";
 //styles
 import "../AppBar/AppBar.css";
+import "./AppBar.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    position: "-webkit-sticky",
+    position: "fixed",
     top: 0,
     maxHeight: "10vh",
     minHeight: "5vh",
-    height: "5vh",
+    height: "8vh",
     boxShadow: "none",
     backgroundColor: "#22121",
   },
@@ -61,7 +62,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <div className="App">
+    <div className="Header">
       <header className="App-header">
         <AppBar position="fixed" className={classes.root}>
           <Toolbar>

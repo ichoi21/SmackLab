@@ -1,8 +1,21 @@
 .App-header {
-  max-height: 10vh;
+  max-height: 15vh;
   background-color: #212121;
-
+  position: fixed;
   text-decoration: none;
+}
+
+.MuiSvgIcon-root {
+  color: white;
+}
+
+.MuiButton-label a {
+  color: white;
+}
+
+.Header {
+  max-height: 15vh;
+  height: 8vh;
 }
 
 .MuiPaper-root {
