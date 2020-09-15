@@ -23,8 +23,8 @@ const Exercises = () => {
     
     const [state, setState] = useState({name:[], image: []});
 
-    const getExercises = () => {
-        window.location.href = "http://localhost:3000/exercises";
+    const getExercises = (exercises) => {
+        window.location.href = `http://localhost:3000/exercises/${exercises.name}`;
     }
 
 
@@ -54,7 +54,7 @@ const Exercises = () => {
                 
                 <div class="row">
                 <div class="col s12 m6">
-                  <div class="card" onClick={getExercises}>
+                  <div class="card" onClick={() => getExercises(exercises)}>
                     <div class="card-image">
                       <img src={picArray[index]}/>
                       <span class="card-title" >{exercises.name}</span>
