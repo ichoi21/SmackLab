@@ -15,18 +15,6 @@ import { Link, Switch } from "react-router-dom";
 import logo from "../img/logo1.png";
 import logo_sm from "../img/sl_md.png";
 
-//pages
-import SignUp from "../Pages/SignUp";
-import Login from "../Pages/Login";
-import Chat from "../Chat/Chat";
-import About from "../Pages/About";
-import Contact from "../Pages/Contact";
-
-import Categories from "../Exercise/Categories";
-import Exercises from "../Exercise/Exercises";
-import Quiz from "../Quiz";
-import Profile from "../Profile/Profile";
-import Calculator from "../Calculator";
 //styles
 import "../AppBar/AppBar.css";
 import "./AppBar.css";
@@ -82,6 +70,9 @@ const Header = () => {
             </Typography>
 
             <Button>
+              <Link to="/home">Home</Link>
+            </Button>
+            <Button>
               <Link to="/signup">Sign Up</Link>
             </Button>
             <Button>
@@ -111,39 +102,6 @@ const Header = () => {
           </Toolbar>
         </AppBar>
       </header>
-
-      <Switch>
-        <route path="/signup">
-          <SignUp />
-        </route>
-        <route path="/login">
-          <Login />
-        </route>
-        <route path="/chat">
-          <Chat />
-        </route>
-        <route path="/categories">
-          <Categories />
-        </route>
-        <route path="/quiz">
-          <Quiz />
-        </route>
-        <route path="/profile">
-          <Profile />
-        </route>
-        <route path="/exercises">
-          <Exercises />
-        </route>
-        <route path="/calculator">
-          <Calculator />
-        </route>
-        <route path="/about">
-          <About />
-        </route>
-        <route path="/contact">
-          <Contact />
-        </route>
-      </Switch>
     </div>
   );
 };

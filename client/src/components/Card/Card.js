@@ -29,15 +29,13 @@ const ProfileCard = (props) => {
         <Card className={classes.root}>
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Word of the Day
+                    {props.title}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                    adjective
+                    {props.subtitle}
                 </Typography>
                 <Typography variant="body2" component="p">
-                    well meaning and kindly.
-                    <br />
-                    {'"a benevolent smile"'}
+                    {props.body}
                 </Typography>
             </CardContent>
             <CardActions>
