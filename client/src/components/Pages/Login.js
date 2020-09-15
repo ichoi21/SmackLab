@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {
     makeStyles,
@@ -10,7 +10,6 @@ import {
     Checkbox,
     Link,
     Paper,
-    Box,
     Grid,
     Typography,
 } from '@material-ui/core';
