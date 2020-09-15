@@ -15,11 +15,11 @@ import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color: "default",
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.text.default,
   },
 }));
 
@@ -39,10 +39,10 @@ const Home = () => {
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <Card text="View Profile" />
+          <Card title="Profile" text="View Profile" />
         </Grid>
         <Grid item xs={6}>
-          <Card />
+          <Card title="Recommendations" />
         </Grid>
       </Grid>
       <Grid container spacing={3}>
