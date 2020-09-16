@@ -18,25 +18,20 @@ export function AuthReducer(initialState, action) {
         user: action.payload
       };
     case "USER_LOADING":
+      console.log("userloading from reducer")
       return {
         ...initialState,
         loading: true
       };
-    case "LOGGED_IN":
-      return {
-        ...initialState,
-        isAuthenticated: true,
-        user: action.payload.user,
-        token: action.payload.token
-      };
     case "LOGIN":
       localStorage.setItem("user", JSON.stringify(action.payload.user));
-      localStorage.setItem("token", JSON.stringify(action.payload.token));
+      localStorage.setItem("token", action.payload.token);
       return {
           ...initialState,
           isAuthenticated: true,
           user: action.payload.user,
-          token: action.payload.token
+          token: action.payload.token,
+          loading: false
       };
     case "LOGOUT":
         localStorage.clear();

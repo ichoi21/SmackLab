@@ -4,6 +4,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
+const auth = require("../../middleware/auth");
+require("dotenv").config();
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -48,7 +50,7 @@ router.post("/register", (req, res) => {
               console.log("saved user", user)
               jwt.sign(
                 {_id: user._id},
-                keys.secretOrKey,
+                process.env.secretOrKey,
                 {
                   expiresIn: 31556926, // 1 year in seconds
                 },
@@ -60,7 +62,8 @@ router.post("/register", (req, res) => {
                   res.json({
                     success: true,
                     user: {email: user.email, first_name: user.first_name, last_name: user.last_name},
-                    token: "Bearer " + token,
+                    // token: "Bearer " + token,
+                    token: token,
                   });
                 }
               );
@@ -112,7 +115,7 @@ router.post("/login", (req, res) => {
         // Sign token
         jwt.sign(
           {_id: user._id},
-          keys.secretOrKey,
+          process.env.secretOrKey,
           {
             expiresIn: 31556926, // 1 year in seconds
           },
@@ -121,7 +124,8 @@ router.post("/login", (req, res) => {
             res.json({
               success: true,
               user: payload,
-              token: "Bearer " + token,
+              // token: "Bearer " + token,
+              token: token,
             });
           }
         );
@@ -132,6 +136,23 @@ router.post("/login", (req, res) => {
       }
     });
   });
+});
+
+router.get("/verify", auth, (req, res) => {
+  console.log("this is user id", req.user);
+  User.findById(req.user)
+  .select("email first_name last_name")
+  .then((user) => { 
+    console.log("this is from verify", user);
+    return res.json({user, token: req.header("x-auth-token")});
+  })
+  .catch((err) => { 
+    console.log(err);
+    return res
+      .status(500)
+      .json({ msg: "error in req db" });
+  });
+  return(res);
 });
 
 module.exports = router;

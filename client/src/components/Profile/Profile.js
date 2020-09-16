@@ -1,44 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
+import { Grid, makeStyles } from "@material-ui/core";
+import GradientButton from "../Button/GradientButton";
+import { Link, BrowserRouter as Router } from "react-router-dom";
+import ProfileCard from "./ProfileCard";
+import Avatar from "@material-ui/core/Avatar";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import CardHeader from "@material-ui/core/CardHeader";
+import Card from "../Card/Card";
+import QuizCard from "./QuizCard";
 
-function Profile() {
-  const [image, setImage] = useState("");
-  const [loading, setLoading] = useState(false);
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
 
-  const uploadImage = async (e) => {
-    const files = e.target.files;
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "smacklab");
-    setLoading(true);
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dsczimqye/image/upload",
-      {
-        method: "POST",
-        body: data,
-      }
-    );
-    const file = await res.json();
-
-    setImage(file.secure_url);
-    setLoading(false);
-  };
+const Profile = () => {
+  const classes = useStyles();
 
   return (
-    <div className="App">
-      <h1>Upload Image</h1>
-      <input
-        type="file"
-        name="file"
-        placeholder="Upload an image"
-        onChange={uploadImage}
-      />
-      {loading ? (
-        <h3>Loading...</h3>
-      ) : (
-        <img src={image} style={{ width: "300px" }} />
-      )}
+    <div className="Profile">
+      <div className={classes.root}>
+        <Grid
+          container
+          spacing={12}
+          direction="column-reverse"
+          justify="center"
+          alignItems="center"
+        >
+          <ProfileCard />
+        </Grid>
+        <Grid
+          container
+          spacing={12}
+          direction="column-reverse"
+          justify="center"
+          alignItems="center"
+        >
+          <QuizCard />
+        </Grid>
+      </div>
     </div>
   );
-}
+};
 
 export default Profile;

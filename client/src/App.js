@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import React from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 // import AuthReducer from "./reducers/authReducer";
 // import useReducer from "./reducers/useReducer";
@@ -17,30 +17,15 @@ import Profile from "./components/Profile/Profile";
 import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 import Landing from "./components/Pages/Landing";
+import Calc from "./components/Calculator/index";
+import axios from "axios";
 
 import "./App.css";
 import Fab from "@material-ui/core/Fab";
+import PrivateRoute from "./handlers/PrivateRoute";
+import PublicRoute from "./handlers/PublicRoute";
 
 const App = () => {
-  const { auth, setAuth } = useAuthContext();
-
-  useEffect(async () => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
-    }
-    console.log(auth);
-    return token;
-  }, [])
-
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={(props) => (
-      localStorage.getItem('token') !== null
-      // auth.isAuthenticated === true
-        ? <Component {...props} />
-        : <Redirect to='/login' />
-    )} />
-  );
 
   return (
     <Router>
@@ -50,13 +35,14 @@ const App = () => {
           {/* {!auth.isAuthenticated ? <Login /> : <Home />} */}
           <Route exact path="/" component={Landing} />
           <PrivateRoute exact path="/home" component={Home} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/login" component={Login} />
+          <PublicRoute exact path="/signup" component={SignUp} />
+          <PublicRoute exact path="/login" component={Login} />
           <Route exact path="/chat" component={Chat} />
           <PrivateRoute exact path="/quiz" component={Quiz} />
           <PrivateRoute exact path="/categories" component={Categories} />
           <PrivateRoute exact path="/exercises" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
+          <Route exact path="/calculator" component={Calc} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
         </Switch>
