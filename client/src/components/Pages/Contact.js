@@ -1,5 +1,6 @@
 import React from "react";
 import emailjs from "emailjs-com";
+import "./About.css";
 
 export default function ContactUS() {
   function sendEmail(e) {
@@ -24,7 +25,7 @@ export default function ContactUS() {
 
   return (
     <div>
-      <h1>Smack talk with us!</h1>
+      <h2 className="weight800">Smack talk with us!</h2>
       <div className="container">
         <form onSubmit={sendEmail}>
           <div className="row pt-5 mx-auto">
