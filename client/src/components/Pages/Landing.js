@@ -17,14 +17,22 @@ const Landing = () => {
     return (
         <div className="Landing">
             <div className={classes.root}>
-                <Grid container spacing={3}>
-                    <Grid item xs={6} className="parentTitle">
+                <Grid container spacing={4}>
+                    <Grid item xs={1}></Grid>
+                    <Grid item xs={5} className="parentTitle">
                         <h1 className="title">YOUR FITNESS
                         <br/>
-                        BEGINS AT
+                        BEGINS WITH
                         <br />
                         <span className="outline">SMACK LABS</span></h1>
-                        <GradientButton className="lbutton" text="Log In"/>
+                        <div className="parentBtn">
+                            <Link to="/login">
+                                <GradientButton className="lBtn" text="Log In"/>
+                            </Link>
+                            <Link to="/signup">
+                                <GradientButton className="lBtn" text="Sign Up"/>
+                            </Link>
+                        </div>
                     </Grid>
                     <Grid item xs={6} className="parentBlob">
                         <img src={landingImg} alt="landing" />

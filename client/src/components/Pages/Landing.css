@@ -5,10 +5,10 @@
 }
 
 .parentTitle {
-    align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-left: 2em;
 }
 
 .title, .outline {
@@ -76,7 +76,13 @@
     justify-content: center;
 }
 
-.lbutton {
+.parentBtn {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.lBtn {
     justify-content: flex-start;
     display: flex;
 }
