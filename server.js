@@ -2,15 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-
 const users = require("./routes/api/users");
-
 const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const PORT = process.env.PORT || 5000;
 const path = require("path");
 const cors = require("cors");
+
+require("dotenv").config();
 
 app.use(cors());
 
@@ -23,7 +23,7 @@ app.use(
 app.use(bodyParser.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = process.env.mongoURI;
 
 // Connect to MongoDB
 mongoose
@@ -45,6 +45,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 app.options('*', cors());
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // const apiRoutes = require("./routes/api-routes");
 // app.use(apiRoutes);
