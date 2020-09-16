@@ -10,12 +10,14 @@ import {
 import "./Home.css";
 import "../../App.css";
 import Card from "../Card/Card";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     color: "default",
+  },
+  palette: {
+    type: 'dark',
   },
   paper: {
     padding: theme.spacing(2),
@@ -30,10 +32,10 @@ const Home = () => {
   const classes = useStyles();
   return (
     <div className="Home">
-      <Grid container className="Title">
+      <Grid container className="Title" spacing={3}>
         <div className="userName">
-        <Typography variant="h5" className={classes.title} color="textSecondary" gutterBottom>
-          Welcome Back {currentUserName}!
+          <Typography variant="h3" className="welcome" color="textPrimary" gutterBottom>
+            Welcome Back {currentUserName}!
         </Typography>
         </div>
       </Grid>
@@ -42,15 +44,15 @@ const Home = () => {
           <Card title="Profile" text="View Profile" />
         </Grid>
         <Grid item xs={6}>
-          <Card title="Recommendations" />
+          <Card title="Recommendations" text="View Recommendations"/>
         </Grid>
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs={8}>
-          <Card />
+          <Card title="Workouts" text="View Workouts"/>
         </Grid>
         <Grid item xs={4}>
-          <Card />
+          <Card title="Tips" text="View Tips"/>
         </Grid>
       </Grid>
     </div>
