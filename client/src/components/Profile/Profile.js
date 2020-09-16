@@ -7,6 +7,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
+import Card from "../Card/Card";
+import QuizCard from "./QuizCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,8 +31,15 @@ const Profile = () => {
         >
           <ProfileCard />
         </Grid>
-
-        <ProfileCard />
+        <Grid
+          container
+          spacing={12}
+          direction="column-reverse"
+          justify="center"
+          alignItems="center"
+        >
+          <QuizCard />
+        </Grid>
       </div>
     </div>
   );
