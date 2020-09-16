@@ -29,6 +29,8 @@ const Profile = () => {
         >
           <ProfileCard />
         </Grid>
+
+        <ProfileCard />
       </div>
     </div>
   );
