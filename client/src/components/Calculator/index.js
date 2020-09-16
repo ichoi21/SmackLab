@@ -4,7 +4,7 @@ import Range from "./Range";
 import ToggleSwitch from "./ToggleSwitch";
 import Output from "./Output";
 
-class App extends Component {
+class Calc extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -109,7 +109,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container calc">
         <h2>Body Calculator</h2>
         <form>
           <div>
@@ -146,4 +146,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Calc;

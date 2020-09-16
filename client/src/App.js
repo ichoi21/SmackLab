@@ -17,6 +17,7 @@ import Profile from "./components/Profile/Profile";
 import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 import Landing from "./components/Pages/Landing";
+import Calc from "./components/Calculator/index";
 
 import "./App.css";
 import Fab from "@material-ui/core/Fab";
@@ -24,14 +25,17 @@ import Fab from "@material-ui/core/Fab";
 const App = () => {
   const { auth, setAuth } = useAuthContext();
 
-  useEffect(async () => {
+  useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
+    async function isLoggedIn() {
+      if (token) {
+        await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
+      }
     }
+    isLoggedIn();
     console.log(auth);
     return token;
-  }, [])
+  }, []);
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
@@ -57,6 +61,7 @@ const App = () => {
           <PrivateRoute exact path="/categories" component={Categories} />
           <PrivateRoute exact path="/exercises" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
+          <Route exact path="/calculator" component={Calc} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
         </Switch>
