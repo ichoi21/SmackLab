@@ -10,6 +10,7 @@ const MyButton = styled(Button)({
     color: 'white',
     height: 48,
     padding: '0 30px',
+    marginRight: "2em",
 });
 
 export default function StyledComponents(props) {
