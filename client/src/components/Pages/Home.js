@@ -5,54 +5,55 @@ import { Paper, Grid, makeStyles, Typography } from "@material-ui/core";
 import "./Home.css";
 import "../../App.css";
 import Card from "../Card/Card";
-import Profile from "../Profile/Profile";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color: "default",
+  },
+  palette: {
+    type: "dark",
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.default,
   },
 }));
 
-const currentUser = JSON.parse(localStorage.getItem("user"));
-const currentUserName = currentUser.first_name;
-const currentUserlName = currentUser.last_name;
-
 const Home = () => {
   const classes = useStyles();
+
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUserName = currentUser.first_name;
+
   return (
     <div className="Home">
-      <Grid container className="Title">
+      <Grid container className="Title" spacing={3}>
         <div className="userName">
           <Typography
-            variant="h5"
-            className={classes.title}
-            color="textSecondary"
+            variant="h3"
+            className="welcome"
+            color="textPrimary"
             gutterBottom
           >
-            Welcome Back {currentUserName} {currentUserlName}!
+            Welcome Back {currentUserName}!
           </Typography>
         </div>
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <Profile text="View Profile" />
+          <Card title="Profile" text="View Profile" />
         </Grid>
         <Grid item xs={6}>
-          <Card />
+          <Card title="Recommendations" text="View Recommendations" />
         </Grid>
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs={8}>
-          <Card />
+          <Card title="Workouts" text="View Workouts" />
         </Grid>
         <Grid item xs={4}>
-          <Card />
+          <Card title="Tips" text="View Tips" />
         </Grid>
       </Grid>
     </div>

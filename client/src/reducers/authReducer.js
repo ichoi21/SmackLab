@@ -22,6 +22,11 @@ export function AuthReducer(initialState, action) {
         ...initialState,
         loading: true
       };
+    case "LOGGED_IN":
+      return {
+        ...initialState,
+        isAuthenticated: true
+      };
     case "LOGIN":
       localStorage.setItem("user", JSON.stringify(action.payload.user));
       localStorage.setItem("token", JSON.stringify(action.payload.token));
