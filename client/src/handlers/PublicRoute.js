@@ -6,7 +6,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
 
     const { auth } = useAuthContext();
     console.log("proute", auth)
-    if (auth.loading) return <p> Loading </p>
+    // if (auth.loading) return <p> Loading </p>
     return (
         <Route {...rest} render={(props) => (
             // localStorage.getItem('token') !== null
