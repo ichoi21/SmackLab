@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
+const auth = require("../../middleware/auth");
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -133,5 +134,9 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+router.get("/verify", auth, ((req, res) =>{ 
+  return(res);
+}));
 
 module.exports = router;

@@ -17,6 +17,8 @@ import Profile from "./components/Profile/Profile";
 import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 import Landing from "./components/Pages/Landing";
+import Calc from "./components/Calculator/index";
+import axios from "axios";
 
 import "./App.css";
 import Fab from "@material-ui/core/Fab";
@@ -24,19 +26,41 @@ import Fab from "@material-ui/core/Fab";
 const App = () => {
   const { auth, setAuth } = useAuthContext();
 
-  useEffect(async () => {
+  useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
-    }
+    // async function isLoggedIn() {
+    //   if (token) {
+    //     await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
+    //   }
+    // }
+    isLoggedIn(token);
     console.log(auth);
-    return token;
-  }, [])
+  }, []);
+
+  const isLoggedIn = (token) => {
+    return new Promise((resolve, reject) => {
+        axios({
+          method: "GET",
+          uri: 'http://localhost:5000/api/users/verify',
+          headers: {
+            Authorization: "Bearer" + token,
+          },
+        })
+        .then((response) => {
+            console.log(response);
+            setAuth({ type: "LOGGED_IN" });
+            resolve(response);
+        })
+        .catch((error) => {
+            reject(error);
+        });
+    });
+  };
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
-      localStorage.getItem('token') !== null
-      // auth.isAuthenticated === true
+      // localStorage.getItem('token') !== null
+      auth.isAuthenticated === true
         ? <Component {...props} />
         : <Redirect to='/login' />
     )} />
@@ -57,6 +81,7 @@ const App = () => {
           <PrivateRoute exact path="/categories" component={Categories} />
           <PrivateRoute exact path="/exercises" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
+          <Route exact path="/calculator" component={Calc} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
         </Switch>
