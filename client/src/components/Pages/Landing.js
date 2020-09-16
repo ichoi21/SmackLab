@@ -24,7 +24,7 @@ const Landing = () => {
                         <br/>
                         BEGINS WITH
                         <br />
-                        <span className="outline">SMACK LABS</span></h1>
+                        <span className="outline">SMACK LAB</span></h1>
                         <div className="parentBtn">
                             <Link to="/login">
                                 <GradientButton className="lBtn" text="Log In"/>
