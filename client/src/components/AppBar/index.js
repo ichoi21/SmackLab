@@ -3,13 +3,12 @@ import {
   Button,
   IconButton,
   makeStyles,
-  Palette,
   Toolbar,
   Typography,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React from "react";
-import { Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //images
 import logo from "../img/logo1.png";
@@ -18,6 +17,7 @@ import logo_sm from "../img/sl_md.png";
 //styles
 import "../AppBar/AppBar.css";
 import "./AppBar.css";
+import { useAuthContext } from "../../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const { auth, setAuth } = useAuthContext();
 
   return (
     <div className="Header">
@@ -98,6 +99,9 @@ const Header = () => {
             </Button>
             <Button>
               <Link to="/contact">Contact</Link>
+            </Button>
+            <Button onClick={()=>setAuth({type: "LOGOUT"})}>
+              Logout
             </Button>
           </Toolbar>
         </AppBar>

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import React from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 // import AuthReducer from "./reducers/authReducer";
 // import useReducer from "./reducers/useReducer";
@@ -22,49 +22,10 @@ import axios from "axios";
 
 import "./App.css";
 import Fab from "@material-ui/core/Fab";
+import PrivateRoute from "./handlers/PrivateRoute";
+import PublicRoute from "./handlers/PublicRoute";
 
 const App = () => {
-  const { auth, setAuth } = useAuthContext();
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    // async function isLoggedIn() {
-    //   if (token) {
-    //     await setAuth({ type: "LOGGED_IN", payload: { user: localStorage.getItem('user'), token: token } });
-    //   }
-    // }
-    isLoggedIn(token);
-    console.log(auth);
-  }, []);
-
-  const isLoggedIn = (token) => {
-    return new Promise((resolve, reject) => {
-        axios({
-          method: "GET",
-          uri: 'http://localhost:5000/api/users/verify',
-          headers: {
-            Authorization: "Bearer" + token,
-          },
-        })
-        .then((response) => {
-            console.log(response);
-            setAuth({ type: "LOGGED_IN" });
-            resolve(response);
-        })
-        .catch((error) => {
-            reject(error);
-        });
-    });
-  };
-
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={(props) => (
-      // localStorage.getItem('token') !== null
-      auth.isAuthenticated === true
-        ? <Component {...props} />
-        : <Redirect to='/login' />
-    )} />
-  );
 
   return (
     <Router>
@@ -74,8 +35,8 @@ const App = () => {
           {/* {!auth.isAuthenticated ? <Login /> : <Home />} */}
           <Route exact path="/" component={Landing} />
           <PrivateRoute exact path="/home" component={Home} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/login" component={Login} />
+          <PublicRoute exact path="/signup" component={SignUp} />
+          <PublicRoute exact path="/login" component={Login} />
           <Route exact path="/chat" component={Chat} />
           <PrivateRoute exact path="/quiz" component={Quiz} />
           <PrivateRoute exact path="/categories" component={Categories} />

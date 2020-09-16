@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
 
-
   const currentUser = JSON.parse(localStorage.getItem('user')); 
   const currentUserName = currentUser.first_name;
 
