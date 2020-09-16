@@ -30,11 +30,8 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "prop-types": "^15.7.2",
-<<<<<<< HEAD
     "react-id-swiper": "^4.0.0",
-=======
     "react-avatar-edit": "^0.8.3",
->>>>>>> 59d91cd2a17a6eb9dfb977932b0c9a864457318b
     "socket.io": "^2.3.0",
     "validator": "^13.1.1"
   },
