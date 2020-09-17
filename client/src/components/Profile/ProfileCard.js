@@ -15,6 +15,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,24 +53,31 @@ export default function RecipeReviewCard() {
 
   return (
     <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="avatar" className={classes.avatar}>
-            SL
-          </Avatar>
-        }
-        title=""
-      />
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="avatar" className={classes.avatar}>
+                SL
+              </Avatar>
+            }
+            title=""
+          />
+        </Grid>
+      </Grid>
       <CardMedia />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           <p> Name: {currentUserName} </p>
-          <p>Age: </p>
-          <p>Weight: </p>
-          <p>Height: </p>
+          <p>Age: 27</p>
+          <p>Weight: 119 </p>
+          <p>Height: 5'2 </p>
+          <p>Fitness Goal: Cardio </p>
         </Typography>
       </CardContent>
       <CardActions disableSpacing></CardActions>
     </Card>
   );
 }
+
+//routes still need to be made from quiz and calculator for profile
