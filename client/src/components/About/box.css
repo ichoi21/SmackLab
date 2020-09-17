@@ -1,52 +1,53 @@
 @import "../Pages/About.css";
 
 .profilebox {
-  background-color: $white-color;
+  background-color: #272828;
+  color: white;
   width: 100%;
   max-width: 370px;
   min-height: 460px;
   position: relative;
   margin: 30px auto;
-
-  .profileImage {
+}
+.profileImage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img {
     width: 100%;
     height: auto;
-    position: relative;
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-    .profilehover {
-      cursor: pointer;
-      transition: 0.3s ease;
-      background-color: rgba($main-color, 0.8);
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
   }
+}
 
-  .profileImage:hover {
-    .profilehover {
-      opacity: 1;
-    }
+.profilehover {
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: rgba($main-color, 0.8);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profileImage:hover {
+  .profilehover {
+    opacity: 1;
   }
+}
 
-  .profileinfo {
-    padding: 35px;
+.profileinfo {
+  padding: 35px;
 
-    h4 {
-      text-transform: uppercase;
-    }
+  h4 {
+    text-transform: uppercase;
   }
 }
 
 .rankInfo {
   background-color: gold;
+  color: black;
   position: absolute;
   bottom: 0;
   left: 0;

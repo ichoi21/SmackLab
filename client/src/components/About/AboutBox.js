@@ -3,7 +3,7 @@ import React from "react";
 import "./box.css";
 
 const details = (props) => (
-  <div className="profilebox">
+  <div className="profilebox shadow">
     <div className="profileImage">
       <img src={props.profile.image} alt="profile" />
     </div>
