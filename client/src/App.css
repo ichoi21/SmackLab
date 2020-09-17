@@ -33,3 +33,14 @@
     transform: rotate(90deg);
   }
 }
+
+.chatBtn {
+  position: absolute;
+  z-index: 1;
+  bottom: 10%;
+  right: 5%;
+}
+
+.chatBtn a {
+  color: white;
+}
