@@ -1,11 +1,16 @@
 import React,{useEffect, useState} from 'react'
 import Exercise from './Exercises';
 import axios from 'axios';
+import Video from './Video';
+import ExerciseCard from './Card/ExerciseCard';
+import {Grid} from '@material-ui/core';
 import {BrowserRouter as Router, Switch, Link, Route, useParams} from 'react-router-dom';
 const ExerciseList = () => {
+    
   
         const [state, setState] = useState({name: []});
         let {muscles} = useParams();
+        let array = [];
         console.log(muscles);
 
         const getExercises = ()=> {
@@ -17,12 +22,11 @@ const ExerciseList = () => {
             if(ex.category.name===muscles)
             {
                 if(ex.name != ""){
-                    setState({
-                        name: ex.name
-                    })
+                    array.push(ex.name)
                 }
             }
         })
+        setState({name: array});
        });
         }
          
@@ -38,11 +42,22 @@ const ExerciseList = () => {
                     <Route path="/exercises/:muscles">
                         <Exercise/>
                         <h1>This is {muscles}</h1>
-                       <div className="container">
-                       {state.name.map((exercises)=>{
-                            console.log(exercises);
+                    
+                    <div className="container" spacing={6}>
+
+                        {state.name.map((exercise)=>{
+                            console.log(exercise);
+                          return(  <>
+                            <ExerciseCard name={exercise} text={muscles}/>
+                            <Video name={exercise}/>
+                            </>)
                         })}
-                           </div> 
+                    
+                    </div>
+                   
+                        
+                    
+                 
                     </Route>
                 </Switch>
             </Router>
