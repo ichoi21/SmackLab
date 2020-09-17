@@ -26,7 +26,7 @@ const Profile = () => {
       <div className={classes.root}>
         <Grid
           container
-          spacing={12}
+          spacing={3}
           direction="column-reverse"
           justify="center"
           alignItems="center"
@@ -35,7 +35,7 @@ const Profile = () => {
         </Grid>
         <Grid
           container
-          spacing={12}
+          spacing={3}
           direction="column-reverse"
           justify="center"
           alignItems="center"

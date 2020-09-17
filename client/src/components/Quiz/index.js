@@ -122,8 +122,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h4>Let us help you reach you goal!</h4>
-        <h6>Simply answer 4 questions below to get started!</h6>
+        <h6>Let us help you reach you goal!</h6>
+        <h4> Simply answer 4 questions below to get started!</h4>
         {this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>
     );
