@@ -1,14 +1,11 @@
-import React,{useState, Component} from 'react'
 import axios from 'axios';
-
-
-const API = 'AIzaSyCYJMKESdsoL4L-RCg5dcX-m-s6ki7JLwc';
+const KEY = 'AIzaSyAvqG7JViWXH4CoAiI80z2eBPw5PQF2YQM'; // mention your youtube API key here
 
 export default axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3/',
     params: {
-        part: "snippet",
+        part: 'snippet',
         maxResults: 5,
-        key: API
+        key: KEY
     }
 })
