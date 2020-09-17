@@ -32,4 +32,20 @@ router.post("/signup", (req, res) => {
     });
 });
 
+router.get('/user/',(req,res) => {
+  db.User.find({ id: req.body.id}).then((result) => {res.send(result)})
+  .catch((err) =>res.send(err));
+})
+
+// router.post('/userinfo/:id',(req,res)=>{
+//   db.Workout.create({
+//     id: req.params.id,
+//     link: req.body.link,
+//   }).then((workout)=>{
+//     res.send(workout);
+//   }).catch((err)=>{
+//     res.json(err);
+//   })
+// });
+
 module.exports = router;
