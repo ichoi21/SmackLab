@@ -90,7 +90,7 @@ class Calc extends Component {
   };
 
   setTDEE = () => {
-    // let activityLevel = 1.2;
+    var activityLevel = 1.2;
 
     if (this.state.activity > 14) {
       activityLevel = 1.9;
