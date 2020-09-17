@@ -71,37 +71,16 @@ const Header = () => {
             </Typography>
 
             <Button>
-              <Link to="/home">Home</Link>
-            </Button>
-            <Button>
               <Link to="/signup">Sign Up</Link>
             </Button>
             <Button>
               <Link to="/login">Log In</Link>
             </Button>
             <Button>
-              <Link to="/chat">Chat</Link>
-            </Button>
-            <Button>
-              <Link to="/categories">Exercises</Link>
-            </Button>
-            <Button>
-              <Link to="/calculator">Calculator</Link>
-            </Button>
-            <Button>
-              <Link to="/quiz">Quiz</Link>
-            </Button>
-            <Button>
-              <Link to="/profile">Profile</Link>
-            </Button>
-            <Button>
               <Link to="/about">About</Link>
             </Button>
             <Button>
               <Link to="/contact">Contact</Link>
-            </Button>
-            <Button onClick={()=>setAuth({type: "LOGOUT"})}>
-              Logout
             </Button>
           </Toolbar>
         </AppBar>

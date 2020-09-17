@@ -9,7 +9,8 @@ import Home from "./components/Pages/Home";
 import SignUp from "./components/Pages/SignUp";
 import Login from "./components/Pages/Login";
 import Quiz from "./components/Quiz/";
-import Header from "./components/AppBar";
+import Header from "./components/AppBar/index";
+import PrivateBar from "./components/AppBar/PrivateBar";
 import Footer from "./components/Footer";
 import Categories from "./components/Exercise/Categories";
 import ExercisesList from "./components/Exercise/ExerciseList";
@@ -27,10 +28,13 @@ import PublicRoute from "./handlers/PublicRoute";
 
 const App = () => {
 
+  const { auth } = useAuthContext();
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        {!auth.isAuthenticated ? <Header /> : <PrivateBar />}
+        {/* <Header /> */}
         <Switch>
           {/* {!auth.isAuthenticated ? <Login /> : <Home />} */}
           <Route exact path="/" component={Landing} />
@@ -42,7 +46,7 @@ const App = () => {
           <PrivateRoute exact path="/categories" component={Categories} />
           <PrivateRoute exact path="/exercises" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <Route exact path="/calculator" component={Calc} />
+          <PrivateRoute exact path="/calculator" component={Calc} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
         </Switch>
@@ -53,7 +57,7 @@ const App = () => {
               {"Let's Chat..."}
             </Link>
           </Fab>
-        </div>
+        </div>}
         <Footer />
       </div>
     </Router>
