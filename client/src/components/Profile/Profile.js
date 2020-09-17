@@ -10,7 +10,6 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Card from "../Card/Card";
 import Quiz from "../Quiz/Quiz";
 import QuizCard from "./QuizCard";
-// import QuizCard from "./QuizCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
