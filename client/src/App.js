@@ -19,7 +19,6 @@ import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 import Landing from "./components/Pages/Landing";
 import Calc from "./components/Calculator/index";
-import axios from "axios";
 
 import "./App.css";
 import Fab from "@material-ui/core/Fab";
@@ -57,7 +56,7 @@ const App = () => {
               {"Let's Chat..."}
             </Link>
           </Fab>
-        </div>}
+        </div>
         <Footer />
       </div>
     </Router>
