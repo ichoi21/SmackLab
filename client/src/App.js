@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 // import AuthReducer from "./reducers/authReducer";
 // import useReducer from "./reducers/useReducer";
@@ -9,7 +9,8 @@ import Home from "./components/Pages/Home";
 import SignUp from "./components/Pages/SignUp";
 import Login from "./components/Pages/Login";
 import Quiz from "./components/Quiz/";
-import Header from "./components/AppBar";
+import Header from "./components/AppBar/index";
+import PrivateBar from "./components/AppBar/PrivateBar";
 import Footer from "./components/Footer";
 import Categories from "./components/Exercise/Categories";
 import ExercisesList from "./components/Exercise/ExerciseList";
@@ -27,10 +28,13 @@ import PublicRoute from "./handlers/PublicRoute";
 
 const App = () => {
 
+  const { auth } = useAuthContext();
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        {!auth.isAuthenticated ? <Header /> : <PrivateBar />}
+        {/* <Header /> */}
         <Switch>
           {/* {!auth.isAuthenticated ? <Login /> : <Home />} */}
           <Route exact path="/" component={Landing} />
@@ -42,14 +46,18 @@ const App = () => {
           <PrivateRoute exact path="/categories" component={Categories} />
           <PrivateRoute exact path="/exercises" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
-          <Route exact path="/calculator" component={Calc} />
+          <PrivateRoute exact path="/calculator" component={Calc} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
         </Switch>
         {/* Floating Button for chatter */}
-        <Fab color="secondary" variant="extended" aria-label="chat">
-          {"Let's Chat..."}
-        </Fab>
+        <div className="chatBtn">
+          <Fab color="secondary" variant="extended" aria-label="chat">
+            <Link to="/chat">
+              {"Let's Chat..."}
+            </Link>
+          </Fab>
+        </div>}
         <Footer />
       </div>
     </Router>
