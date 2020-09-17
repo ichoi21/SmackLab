@@ -8,7 +8,9 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import Card from "../Card/Card";
+import Quiz from "../Quiz/Quiz";
 import QuizCard from "./QuizCard";
+// import QuizCard from "./QuizCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
