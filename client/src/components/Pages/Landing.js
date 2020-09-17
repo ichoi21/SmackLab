@@ -1,7 +1,7 @@
 import React from "react";
 import "./Landing.css";
 import landingImg from "../img/landing.png";
-import { Grid, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles, Box } from "@material-ui/core";
 import GradientButton from "../Button/GradientButton";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const Landing = () => {
         <Grid container spacing={4}>
           <Grid item xs={1}></Grid>
           <Grid item xs={5} className="parentTitle">
-            <h1 className="title">
+            <h1 className="title linear-wipe">
               YOUR FITNESS
               <br />
               BEGINS WITH
@@ -38,7 +38,7 @@ const Landing = () => {
           </Grid>
           <Grid item xs={6} className="parentBlob">
             <img src={landingImg} alt="landing" />
-            <div className="blob red one"></div>
+            {/* <div className="blob red one"></div> */}
           </Grid>
         </Grid>
       </div>
