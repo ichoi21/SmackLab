@@ -67,9 +67,12 @@ export default function RecipeReviewCard() {
           <p>Age: </p>
           <p>Weight: </p>
           <p>Height: </p>
+          <p>Fitness Goal: </p>
         </Typography>
       </CardContent>
       <CardActions disableSpacing></CardActions>
     </Card>
   );
 }
+
+//routes still need to be made from quiz and calculator for profile
