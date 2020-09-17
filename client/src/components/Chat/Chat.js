@@ -6,12 +6,12 @@ import "./Chat.css";
 
 const socket = io.connect("http://localhost:4000");
 const currentUser = JSON.parse(localStorage.getItem("user"));
-const currentUserName = currentUser.first_name;
+// const currentUserName = currentUser.first_name;
 
 const Chat = () => {
   const [state, setState] = useState({
     message: "",
-    name: currentUserName,
+    name: "Smack Talker", //currentUserName - not working when its logout.
   });
   const [chat, setChat] = useState([]);
 
