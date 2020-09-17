@@ -12,7 +12,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import GradientButton from "../Button/GradientButton";
-import Quiz from "../Quiz/Quiz";
+import Quiz from "../Quiz/index";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -37,26 +37,7 @@ const QuizCard = (props) => {
 
   return (
     <div className="container">
-      <ThemeProvider theme={darkTheme}>
-        <Card className={classes.root}>
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              {props.title}
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              {props.subtitle}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {props.body}
-            </Typography>
-          </CardContent>
-          <CardActions></CardActions>
-        </Card>
-      </ThemeProvider>
+      <Quiz />
     </div>
   );
 };
