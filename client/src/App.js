@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 // import AuthReducer from "./reducers/authReducer";
 // import useReducer from "./reducers/useReducer";
@@ -47,9 +47,13 @@ const App = () => {
           <Route exact path="/about" component={About} />
         </Switch>
         {/* Floating Button for chatter */}
-        <Fab color="secondary" variant="extended" aria-label="chat">
-          {"Let's Chat..."}
-        </Fab>
+        <div className="chatBtn">
+          <Fab color="secondary" variant="extended" aria-label="chat">
+            <Link to="/chat">
+              {"Let's Chat..."}
+            </Link>
+          </Fab>
+        </div>
         <Footer />
       </div>
     </Router>
