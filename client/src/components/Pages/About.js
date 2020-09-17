@@ -1,19 +1,19 @@
 import React from "react";
+import Swiper from "react-id-swiper";
 import { Grid, makeStyles } from "@material-ui/core";
-// import Swiper from "react-id-swiper";
+//Assets
 import member1 from "../img/logo1.png";
 import member2 from "../img/logo1.png";
 import member3 from "../img/logo1.png";
 import member4 from "../img/logo1.png";
 
 import "./About.css";
-// import "swiper/css/swiper.css";
-
+import "swiper/swiper-bundle.css";
+// Component
 import Details from "../../components/About/AboutBox";
 
 class About extends React.Component {
   state = {
-    // LIST ARRAY OF Cards
     smackers: [
       {
         image: member1,
@@ -64,8 +64,8 @@ class About extends React.Component {
     const params = {
       grabCursor: true,
       slidesPerView: 1,
-      spaceBetween: 10,
-      loop: true,
+      spaceBetween: 5,
+      loop: false,
       breakpoints: {
         1200: {
           slidesPerView: 3,
@@ -77,7 +77,7 @@ class About extends React.Component {
         },
         768: {
           slidesPerView: 2,
-          spaceBetween: 30,
+          spaceBetween: 40,
         },
         640: {
           slidesPerView: 1,
@@ -85,13 +85,13 @@ class About extends React.Component {
         },
         320: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 5,
         },
       },
     };
 
     return (
-      <div className="About container">
+      <Grid container className="About container" spacing={12}>
         <h2 className="weight800 font40 padding30">About SMVCKLAB</h2>
         <p className="font12 padding10">
           We are four students looking for a way to motivate working out during
@@ -102,10 +102,10 @@ class About extends React.Component {
           chats with trainers and other members as well as fitness videos to
           workout with. Enjoy!
         </p>
-        <div className="padding30">
-          <div {...params}>{storiesRender}</div>
-        </div>
-      </div>
+        <Grid>
+          <Swiper {...params}>{storiesRender}</Swiper>
+        </Grid>
+      </Grid>
     );
   }
 }
