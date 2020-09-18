@@ -16,6 +16,8 @@
 .Header {
   max-height: 15vh;
   height: 8vh;
+  position: absolute;
+  z-index: 5;
 }
 
 .MuiPaper-root {

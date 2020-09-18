@@ -23,6 +23,13 @@ export function AuthReducer(initialState, action) {
         ...initialState,
         loading: true
       };
+    case "GRAB_USER_DATA":
+      return {
+        ...initialState,
+        isAuthenticated: true,
+        token: action.payload.token,
+        loading: false
+      }
     case "LOGIN":
       localStorage.setItem("user", JSON.stringify(action.payload.user));
       localStorage.setItem("token", action.payload.token);

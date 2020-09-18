@@ -1,21 +1,26 @@
 .footerColor {
-    background-color: #212121;
+  background-color: #212121;
 }
 
-.text-color, .text-color a {
-    color: white;
+.text-color,
+.text-color a {
+  color: white;
 }
 
-.footer-pos, .copyright {
-    padding: 2em 2em 1em 2em;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+.footer-pos,
+.copyright {
+  padding: 2em 2em 1em 2em;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
-#FooterLinks, .text-link {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: left;
+#FooterLinks,
+.text-link,
+Link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  text-decoration: none;
 }
