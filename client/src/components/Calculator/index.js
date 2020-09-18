@@ -114,6 +114,10 @@ class Calc extends Component {
       <Grid container className="container">
         <div className="calc">
           <h2>Body Calculator</h2>
+          <p>
+            Slide to your details to find track if you should be smacked or
+            smacking!
+          </p>
           <form>
             <div>
               <label>Age</label>
