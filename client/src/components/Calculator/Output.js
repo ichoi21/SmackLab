@@ -32,39 +32,39 @@ class Output extends Component {
     let pounds = this.toLbs(weight);
 
     return (
-      <div className="output">
+      <div className="output padding10">
         <Grid container spacing={1}>
-          <Grid item md={12} className="title">
-            <h4>Results</h4>
+          <Grid item xs={12} className="title">
+            <h3>Results</h3>
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             Age:{"\n"} {age} yrs
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             {gender}
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             Height:{"\n"} {heightFeet}
             <span className="metric"> {height} cm</span>
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             Weight:{"\n"}
             {pounds}lbs
             <span className="metric"> {weight}kg</span>
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             BMI: {bmi} <span className=""> body mass index</span>
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             BFP: {bfp}% <span className=""> body fat %</span>
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             Level: {bmiClass}
           </Grid>
-          <Grid item md={6} className="col">
+          <Grid item xs={6} className="col">
             BMR: {bmr} <span className=""> basal metabolic rate</span>
           </Grid>
-          <Grid item md={12} className="col">
+          <Grid item xs={12} className="col">
             TDEE: {tdee}cal
             <span className=""> per day</span>
           </Grid>

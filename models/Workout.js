@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const subSchema = new Schema({
-    url: {type: String}
-})
-const workoutSchema = new Schema({
-    id: {type: String, required: true},
-    link: [subSchema]
+const WorkoutSchema = new Schema({
+    question: {type: String, required: true}, 
+    answers: [String],
+    content: {type: String, required:true},
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+const Workout = mongoose.model("Workout", WorkoutSchema);
+
 module.exports = Workout;

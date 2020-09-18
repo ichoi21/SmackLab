@@ -1,9 +1,10 @@
 .Home {
-    height: 85vh;
-    padding: 2em;
-    background-color: #212121;
+  height: 85vh;
+  padding: 2em;
+  background-color: #212121;
+  margin-top: 6em;
 }
 
 .userName {
-    margin: 1em;
+  margin: 1em;
 }

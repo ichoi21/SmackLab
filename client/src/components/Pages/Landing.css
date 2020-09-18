@@ -1,106 +1,108 @@
 .Landing {
-    height: 85vh;
-    padding: 2em;
-    background-color: #f0f0f0;
+  height: 85vh;
+  padding: 2em;
+  background-color: #f0f0f0;
+  margin-top: 5em;
 }
 
 .parentTitle {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 2em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 2em;
 }
 
-.title, .outline {
-    font-family: 'Archivo Black', sans-serif;
-    text-align: left;
-    font-size: 2em;
-    line-height: 1.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.title,
+.outline {
+  font-family: "Archivo Black", sans-serif;
+  text-align: left;
+  font-size: 2em;
+  line-height: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .outline {
-    color: black;
-    -webkit-text-fill-color: #f0f0f0; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+  color: black;
+  -webkit-text-fill-color: #f0f0f0; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .blob {
-	background: black;
-	border-radius: 50%;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-	margin: 25px;
-	height: 50px;
-	width: 50px;
-	transform: scale(1);
-	animation: pulse-black 2s infinite;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  margin: 25px;
+  height: 50px;
+  width: 50px;
+  transform: scale(1);
+  animation: pulse-black 2s infinite;
 }
 
 .blob.red {
-	background: #ee698a;
-	box-shadow: 0 0 0 0 #ee698a;
-	animation: pulse-red 2s infinite;
+  background: #ee698a;
+  box-shadow: 0 0 0 0 #ee698a;
+  animation: pulse-red 2s infinite;
 }
 
 @keyframes pulse-red {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
-	}
-	
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
-	}
-	
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-	}
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
 }
 
 /* blob locations */
 .blob.red.one {
-    display: flex;
-    position: absolute;
-    z-index: 1;
-    margin-bottom: 5em;
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 5em;
 }
 
 .parentBlob {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .parentBtn {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .lBtn {
-    justify-content: flex-start;
-    display: flex;
+  justify-content: flex-start;
+  display: flex;
 }
 
 .linear-wipe {
-    /* text-align: center; */
-    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 80%, #ffcb7c 20%);
-    background-size: 250% auto;
-    color: #000;
-    background-clip: text;
-    /* text-fill-color: transparent; */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5s linear infinite;
+  /* text-align: center; */
+  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 80%, #ffcb7c 20%);
+  background-size: 250% auto;
+  color: #000;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
 }
 
 @keyframes shine {
-    to {
-        background-position: 250% center;
-    }
+  to {
+    background-position: 250% center;
+  }
 }

@@ -63,16 +63,66 @@ var quizQuestions = [
       "Is there something you'd like more information on or have been wanting to try?",
     answers: [
       {
-        type: "Fitness1",
+        type: "Cardio",
         content: "Fitness classes near you",
       },
       {
-        type: "Fitness2",
+        type: "Health",
         content: "Meal plan help",
       },
       {
-        type: "Fitness3",
+        type: "Strength",
         content: "Workout suggestions",
+      },
+
+      {
+        type: "Endurance",
+        content: "Signing up for an event (i.e 5k, Marathon, etc.) ",
+      },
+    ],
+  },
+
+  {
+    question: "What motivates you most most when you workout?",
+    answers: [
+      {
+        type: "Question1",
+        content: "Don't have to time",
+      },
+      {
+        type: "Question2",
+        content: "Can't afford a gym membership",
+      },
+      {
+        type: "Question3",
+        content: "Haven't seen drastic/desired results",
+      },
+      {
+        type: "Question4",
+        content: "All the workout plans I've tried are boring",
+      },
+    ],
+  },
+
+  {
+    question:
+      "What would you say is your biggest obstacle for reaching your fitness goals?",
+    answers: [
+      {
+        type: "Question1",
+        content: "Don't have to time",
+      },
+      {
+        type: "Question2",
+        content: "Can't afford a gym membership",
+      },
+      {
+        type: "Question3",
+        content: "Haven't seen drastic/desired results",
+      },
+      {
+        type: "Question4",
+        content: "All the workout plans I've tried are boring",
       },
     ],
   },

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const ProfileRouter = require("./routes/api-routes");
 const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
@@ -39,6 +40,7 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
+app.use("/api-routes", ProfileRouter);
 
 //initial codes
 app.use(express.urlencoded({ extended: true }));
