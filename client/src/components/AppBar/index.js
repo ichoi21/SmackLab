@@ -53,7 +53,7 @@ const Header = () => {
   return (
     <div className="Header">
       <header className="App-header">
-        <AppBar position="fixed" className={classes.root}>
+        <AppBar position="sticky" className={classes.root}>
           <Toolbar>
             <IconButton
               edge="start"

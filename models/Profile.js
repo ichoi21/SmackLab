@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const WorkoutSchema = new Schema({
+const ProfileSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref:'User'
@@ -9,8 +9,9 @@ const WorkoutSchema = new Schema({
     question: {type: String, required: true}, 
     answers: [String],
     content: {type: String, required:true},
+
 });
 
-const Workout = mongoose.model("Workout", WorkoutSchema);
+const Profile = mongoose.model("Profile", ProfileSchema);
 
-module.exports = Workout;
+module.exports = Profile;
