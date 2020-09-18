@@ -124,7 +124,7 @@ const PrivateBar = () => {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon />
+            <img className="logo" src={logo} alt="Menu" />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <Link to="/">
