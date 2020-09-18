@@ -23,6 +23,17 @@ ProfileRouter.post("/profile/populate", auth, async (req, res) => {
   const profile = new Profile({
     user: req.user,
     questions: req.body.questions,
+    age: req.body.age,
+    genderClass: req.body.genderClass,
+    height: req.body.height,
+    weight: req.body.weight,
+    activity: req.body.activity,
+    bmi: req.body.bmi,
+    bfp: req.body.bfp,
+    bmiClass: req.body.bmiClass,
+    bmr: req.body.bmr,
+    tdee: req.body.tdee,
+    imgUrl: req.body.imgUrl,
   });
   const user = req.user;
   profile.save((err, profile) => {
