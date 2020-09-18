@@ -1,10 +1,7 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
-// import AuthReducer from "./reducers/authReducer";
-// import useReducer from "./reducers/useReducer";
 
-import Chat from "./components/Chat/Chat";
 import Home from "./components/Pages/Home";
 import SignUp from "./components/Pages/SignUp";
 import Login from "./components/Pages/Login";
@@ -19,9 +16,10 @@ import Contact from "./components/Pages/Contact";
 import About from "./components/Pages/About";
 import Landing from "./components/Pages/Landing";
 import Calc from "./components/Calculator/index";
+import ChatBtn from "./components/ChatBtn/ChatBtn";
+import Chat from "./components/Chat/Chat";
 
 import "./App.css";
-import Fab from "@material-ui/core/Fab";
 import PrivateRoute from "./handlers/PrivateRoute";
 import PublicRoute from "./handlers/PublicRoute";
 
@@ -50,13 +48,7 @@ const App = () => {
           <Route exact path="/about" component={About} />
         </Switch>
         {/* Floating Button for chatter */}
-        <div className="chatBtn">
-          <Fab color="secondary" variant="extended" aria-label="chat">
-            <Link to="/chat">
-              {"Let's Chat..."}
-            </Link>
-          </Fab>
-        </div>
+          {!auth.isAuthenticated ? null : <ChatBtn />}
         <Footer />
       </div>
     </Router>
