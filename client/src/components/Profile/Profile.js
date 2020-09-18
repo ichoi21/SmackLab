@@ -67,6 +67,7 @@ const Profile = () => {
   return (
     <div className="Profile">
       <div className={classes.root}>
+        <Avatar />
         <Grid
           container
           spacing={3}
