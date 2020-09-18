@@ -85,9 +85,6 @@ const PrivateBar = () => {
             <Button>
               <Link to="/quiz">Quiz</Link>
             </Button>
-            <Button>
-              <Link to="/profile">Profile</Link>
-            </Button>
             <Button
               className="linkColor"
               onClick={() => setAuth({ type: "LOGOUT" })}
