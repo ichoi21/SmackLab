@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Video from '../Video';
 import clsx from 'clsx';
@@ -42,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+const saveLike = () => {
+  console.log("Saved");
+}
 export default function ExerciseCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -79,7 +84,7 @@ export default function ExerciseCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={saveLike}>
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
