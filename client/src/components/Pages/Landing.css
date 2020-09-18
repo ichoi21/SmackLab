@@ -10,13 +10,22 @@
   justify-content: center;
   flex-direction: column;
   padding-left: 2em;
+  align-content: flex-start;
 }
 
-.title,
+.lTitle {
+  font-size: 2.5em;
+}
+
+.outline {
+  font-size: 5em;
+  margin-top: 0;
+}
+
+.lTitle,
 .outline {
   font-family: "Archivo Black", sans-serif;
   text-align: left;
-  font-size: 2em;
   line-height: 1.5em;
   display: flex;
   flex-direction: column;

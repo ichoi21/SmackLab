@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -35,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     height: "8vh",
     boxShadow: "none",
     backgroundColor: "#22121",
+    width: "auto",
   },
   positionFixed: {
     flexGrow: 1,
@@ -103,6 +103,18 @@ const PrivateBar = () => {
   }
   const drawer = (
     <div>
+      <List className="childList">
+        {dummyCategories.map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
+  const Mdrawer = (
+    <div>
       <List>
         {dummyCategories.map((text, index) => (
           <ListItem button key={text}>
@@ -116,7 +128,7 @@ const PrivateBar = () => {
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className="parentList">
           <IconButton
             color="inherit"
             aria-label="Open drawer"
@@ -157,7 +169,7 @@ const PrivateBar = () => {
             >
               <CloseIcon />
             </IconButton>
-            {drawer}
+            {Mdrawer}
           </Drawer>
         </Hidden>
         <Hidden xlDown implementation="css">
