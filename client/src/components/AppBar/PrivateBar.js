@@ -83,7 +83,7 @@ const PrivateBar = () => {
               <Link to="/calculator">Calculator</Link>
             </Button>
             <Button>
-              <Link to="/quiz">Quiz</Link>
+              <Link to="/profile">Profile</Link>
             </Button>
             <Button
               className="linkColor"
