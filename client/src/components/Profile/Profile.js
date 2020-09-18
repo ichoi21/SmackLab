@@ -10,6 +10,17 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Card from "../Card/Card";
 import Quiz from "../Quiz/Quiz";
 import QuizCard from "./QuizCard";
+import axios from "axios";
+
+const ProfileRoute = (state) => {
+  console.log(state);
+  return new Promise((resolve, reject) => {
+    axios({
+      method: "POST",
+      url: `http://localhost:5000/api/users/profile`,
+    });
+  });
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {

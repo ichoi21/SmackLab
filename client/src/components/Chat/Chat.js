@@ -5,13 +5,13 @@ import { Grid, TextField, TextareaAutosize } from "@material-ui/core";
 import "./Chat.css";
 
 const socket = io.connect("http://localhost:4000");
-const currentUser = JSON.parse(localStorage.getItem("user"));
-// const currentUserName = currentUser.first_name;
 
 const Chat = () => {
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUserName = currentUser.first_name;
   const [state, setState] = useState({
     message: "",
-    name: "Smack Talker", //currentUserName - not working when its logout.
+    name: currentUserName, //currentUserName - not working when its logout.
   });
   const [chat, setChat] = useState([]);
 
@@ -43,23 +43,23 @@ const Chat = () => {
   });
 
   return (
-    <div className="container Chat shadow">
-      <Grid container className="Chat padding" spacing={2}>
+    <div className="container Chat padding padding-top shadow">
+      <Grid container className="Chatboard padding" spacing={2}>
         <form className="margin" onSubmit={onMessageSubmit}>
-          <Grid item md={10} className="title">
+          <Grid item xs={11} className="title">
             <h2>MESSENGER</h2>
             <p className="font9 weight500">
               Smack talk w/ trainers and fellow workout users!
             </p>
           </Grid>
-          <Grid item md={2} className="name-field">
+          <Grid item xs={10} className="name-field">
             <TextField
               name="name"
               onChange={(e) => onTextChange(e)}
               value={state.name}
             />
           </Grid>
-          <Grid item md={6}>
+          <Grid item xs={11}>
             <TextareaAutosize
               rowsMin={3}
               name="message"
@@ -68,7 +68,7 @@ const Chat = () => {
               placeholder="Type a Message"
             />
           </Grid>
-          <Grid item md={2}>
+          <Grid item xs={12}>
             <button color="primary"> Send</button>
           </Grid>
         </form>

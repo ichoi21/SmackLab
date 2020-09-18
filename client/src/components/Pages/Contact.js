@@ -1,6 +1,20 @@
 import React from "react";
 import emailjs from "emailjs-com";
-import "./About.css";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  TextareaAutosize,
+  Link,
+  Grid,
+  Typography,
+  makeStyles,
+  Container,
+} from "@material-ui/core";
+
+// CSS
+import "./Styles.css";
 
 export default function ContactUS() {
   function sendEmail(e) {
@@ -24,55 +38,59 @@ export default function ContactUS() {
   }
 
   return (
-    <div>
-      <h2 className="weight800">Smack talk with us!</h2>
-      <div className="container">
-        <form onSubmit={sendEmail}>
-          <div className="row pt-5 mx-auto">
-            <div className="col-8 form-group mx-auto">
-              <input
+    <div id="Contact" className="container shadow">
+      <Grid container spacing={2} justify="center">
+        <Grid item xs={12}>
+          <h2 className="weight800 text-white">Smack talk with us!</h2>
+          <p className="weight500 text-crimson">
+            Not sure if this is the right method for you? Send us an email, a
+            smacker will respond to you within a few smackable moments.
+          </p>
+        </Grid>
+        <Grid className="email shadow" justify="center">
+          <form onSubmit={sendEmail}>
+            <Grid item xs={12}>
+              <TextField
+                id="filled-basic"
                 type="text"
-                className="form-control"
                 placeholder="Name"
                 name="name"
+                label="Name"
               />
-            </div>
-            <div className="col-8 form-group pt-2 mx-auto">
-              <input
+              <TextField
+                id="filled-basic"
                 type="email"
-                className="form-control"
+                id="filled-basic"
                 placeholder="Email Address"
                 name="email"
+                label="email"
               />
-            </div>
-            <div className="col-8 form-group pt-2 mx-auto">
-              <input
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
                 type="text"
-                className="form-control"
                 placeholder="Subject"
                 name="subject"
+                label="subject"
               />
-            </div>
-            <div className="col-8 form-group pt-2 mx-auto">
-              <textarea
-                className="form-control"
-                id=""
-                cols="30"
-                rows="8"
+            </Grid>
+            <Grid item xs={12}>
+              <TextareaAutosize
+                rowsMin={5}
                 placeholder="Your message"
                 name="message"
-              ></textarea>
-            </div>
-            <div className="col-8 pt-3 mx-auto">
+              ></TextareaAutosize>
+            </Grid>
+            <Grid item xs={12}>
               <input
                 type="submit"
                 className="btn btn-info"
                 value="Send Message"
               ></input>
-            </div>
-          </div>
-        </form>
-      </div>
+            </Grid>
+          </form>
+        </Grid>
+      </Grid>
     </div>
   );
 }
