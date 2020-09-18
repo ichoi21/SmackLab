@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -106,6 +105,18 @@ function Header() {
     </div>
   );
 
+  const Mdrawer = (
+    <div>
+      <List>
+        {dummyCategories.map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -117,7 +128,7 @@ function Header() {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon />
+            <img className="logo" src={logo} alt="Menu" />
           </IconButton>
           <Typography variant="h6" noWrap>
             <Link to="/">
@@ -151,7 +162,7 @@ function Header() {
             >
               <CloseIcon />
             </IconButton>
-            {drawer}
+            {Mdrawer}
           </Drawer>
         </Hidden>
         <Hidden xlDown implementation="css">
