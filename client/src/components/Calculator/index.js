@@ -3,6 +3,8 @@ import "./calc.css";
 import Range from "./Range";
 import ToggleSwitch from "./ToggleSwitch";
 import Output from "./Output";
+import { Grid } from "@material-ui/core";
+import "../Pages/Styles.css";
 
 class Calc extends Component {
   constructor(props) {
@@ -109,39 +111,44 @@ class Calc extends Component {
 
   render() {
     return (
-      <div className="container calc">
-        <h2>Body Calculator</h2>
-        <form>
-          <div>
-            <label>Age</label>
-            <Range value={this.state.age} onChange={this.ageChange} />
-          </div>
-          <div>
-            <label>Gender</label>
-            <ToggleSwitch
-              value={this.state.gender}
-              onChange={this.genderChange}
-            />
-          </div>
-          <div>
-            <label>Height</label>
-            <Range value={this.state.height} onChange={this.heightChange} />
-          </div>
-          <div>
-            <label>Weight</label>
-            <Range value={this.state.weight} onChange={this.weightChange} />
-          </div>
-          <div>
-            <label>Activity</label>
-            <Range value={this.state.activity} onChange={this.activityChange} />
-            <span>
-              {this.state.activity}
-              {"+"} hrs/week
-            </span>
-          </div>
-        </form>
-        <Output data={this.state} />
-      </div>
+      <Grid container className="container">
+        <div className="calc">
+          <h2>Body Calculator</h2>
+          <form>
+            <div>
+              <label>Age</label>
+              <Range value={this.state.age} onChange={this.ageChange} />
+            </div>
+            <div>
+              <label>Gender</label>
+              <ToggleSwitch
+                value={this.state.gender}
+                onChange={this.genderChange}
+              />
+            </div>
+            <div>
+              <label>Height</label>
+              <Range value={this.state.height} onChange={this.heightChange} />
+            </div>
+            <div>
+              <label>Weight</label>
+              <Range value={this.state.weight} onChange={this.weightChange} />
+            </div>
+            <div>
+              <label>Activity</label>
+              <Range
+                value={this.state.activity}
+                onChange={this.activityChange}
+              />
+              <span>
+                {this.state.activity}
+                {"+"} hrs/week
+              </span>
+            </div>
+          </form>
+          <Output data={this.state} />
+        </div>
+      </Grid>
     );
   }
 }

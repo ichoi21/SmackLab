@@ -1,6 +1,11 @@
 .Chat {
-  background-color: #5b5e5b;
+  background-color: crimson;
   color: white;
+  height: 80%;
+}
+
+.Chatboard {
+  background-color: crimson;
 }
 
 .title {
@@ -8,11 +13,16 @@
 }
 
 .padding {
-  padding: 3rem 0;
+  padding: 5rem 0;
+}
+
+.padding-top {
+  padding-top: 10rem;
 }
 
 .margin {
   margin-left: 2rem;
+  margin-top: 2rem;
 }
 
 .weight500 {

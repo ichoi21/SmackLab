@@ -7,7 +7,7 @@ import member2 from "../img/logo1.png";
 import member3 from "../img/logo1.png";
 import member4 from "../img/logo1.png";
 
-import "./About.css";
+import "./Styles.css";
 import "swiper/swiper-bundle.css";
 // Component
 import Details from "../../components/About/AboutBox";
@@ -77,23 +77,23 @@ class About extends React.Component {
       breakpoints: {
         1200: {
           slidesPerView: 1,
-          spaceBetween: 4,
+          spaceBetween: 10,
         },
         1024: {
-          slidesPerView: 3,
-          spaceBetween: 5,
+          slidesPerView: 2,
+          spaceBetween: 10,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 5,
+          spaceBetween: 10,
         },
         640: {
           slidesPerView: 1,
-          spaceBetween: 5,
+          spaceBetween: 10,
         },
         320: {
           slidesPerView: 1,
-          spaceBetween: 5,
+          spaceBetween: 10,
         },
       },
     };

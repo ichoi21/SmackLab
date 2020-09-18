@@ -34,8 +34,8 @@ const Footer = () => {
           </div>
         </Grid>
         <Grid className="footerColor footer-pos" item xs={1}></Grid>
-        <Grid item xs={4}>
-          <div className="footerColor footer-pos" id="Footer">
+        <Grid item xs={4} className="footerColor footer-pos">
+          <div id="Footer">
             <div className="text-color" id="FooterLinks">
               <p>
                 <b>MORE</b>
@@ -45,6 +45,9 @@ const Footer = () => {
               </Link>{" "}
               <Link color="inherit" href="/Contact">
                 Contact
+              </Link>{" "}
+              <Link color="inherit" href="/">
+                Store
               </Link>{" "}
             </div>
           </div>
