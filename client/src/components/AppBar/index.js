@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     height: "8vh",
     boxShadow: "none",
     backgroundColor: "#22121",
+    width: "auto",
   },
   positionFixed: {
     flexGrow: 1,
@@ -95,7 +96,7 @@ function Header() {
   }
   const drawer = (
     <div>
-      <List>
+      <List className="childList">
         {dummyCategories.map((text, index) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
@@ -108,7 +109,7 @@ function Header() {
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className="parentList">
           <IconButton
             color="inherit"
             aria-label="Open drawer"
