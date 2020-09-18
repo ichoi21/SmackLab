@@ -8,6 +8,12 @@ const UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, minLength: 6 },
   date: { type: Date, default: Date.now },
+  profile : [
+    {type: Schema.Types.ObjectId,ref:'Profile'}
+  ],
+  workout: [
+    {type: Schema.Types.ObjectId, ref: "Workout"}
+  ]
 });
 
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = User = mongoose.model("User", UserSchema);
