@@ -24,7 +24,6 @@ import PrivateRoute from "./handlers/PrivateRoute";
 import PublicRoute from "./handlers/PublicRoute";
 
 const App = () => {
-
   const { auth } = useAuthContext();
 
   return (
@@ -48,7 +47,7 @@ const App = () => {
           <Route exact path="/about" component={About} />
         </Switch>
         {/* Floating Button for chatter */}
-          {!auth.isAuthenticated ? null : <ChatBtn />}
+        {!auth.isAuthenticated ? null : <ChatBtn />}
         <Footer />
       </div>
     </Router>

@@ -12,16 +12,6 @@ import Quiz from "../Quiz/Quiz";
 import QuizCard from "./QuizCard";
 import axios from "axios";
 
-const ProfileRoute = (state) => {
-  console.log(state);
-  return new Promise((resolve, reject) => {
-    axios({
-      method: "POST",
-      url: `http://localhost:5000/api/users/profile`,
-    });
-  });
-};
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -29,11 +19,55 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Profile = () => {
+  // const initialState = {
+  //   questions: [],
+  // };
+
+  // const [data, setData] = React.useState(initialState);
+  // const handleInputChange = (event) => {
+  //   setData({
+  //     ...data,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  // const submitState = (e) => {
+  //   e.preventDefault();
+  //   Profile(data)
+  //     .then((res) => {
+  //       console.log(res.data.user);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.response);
+  //     });
+  // };
+  // const token = localStorage.getItem("token");
+  // console.log(state);
+  // return new Promise((resolve, reject) => {
+  //   axios({
+  //     method: "POST",
+  //     url: `http://localhost:5000/api/users/profile`,
+  //     headers: {
+  //       "x-auth-token": token,
+  //     },
+  //     data: {
+  //       questions: state.questions,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //       resolve(response);
+  //     })
+  //     .catch((error) => {
+  //       reject(error);
+  //     });
+  // });
   const classes = useStyles();
 
   return (
     <div className="Profile">
       <div className={classes.root}>
+        <Avatar />
         <Grid
           container
           spacing={3}

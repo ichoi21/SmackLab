@@ -19,14 +19,13 @@ const Landing = () => {
       <div className={classes.root}>
         <Grid container spacing={4}>
           <Grid item xs={1}></Grid>
-          <Grid item xs={5} className="parentTitle">
-            <h1 className="title linear-wipe">
+          <Grid item xs={5} m={5} className="parentTitle">
+            <h1 className="lTitle linear-wipe">
               YOUR FITNESS
               <br />
               BEGINS WITH
-              <br />
-              <span className="outline">SMACK LAB</span>
             </h1>
+            <h1 className="outline">SMACKLAB</h1>
             <div className="parentBtn">
               <Link to="/login">
                 <GradientButton className="lBtn" text="Log In" />
@@ -36,7 +35,7 @@ const Landing = () => {
               </Link>
             </div>
           </Grid>
-          <Grid item xs={6} className="parentBlob">
+          <Grid item xs={6} m={6} className="parentBlob">
             <img src={landingImg} alt="landing" />
             {/* <div className="blob red one"></div> */}
           </Grid>

@@ -23,3 +23,23 @@
 .MuiPaper-root {
   background-color: #272827 !important;
 }
+
+.logo {
+  width: 20%;
+  height: auto;
+}
+/* styling */
+.parentList {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.childList {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.MuiListItem-root {
+  width: auto !important;
+}
