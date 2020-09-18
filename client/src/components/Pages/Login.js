@@ -62,7 +62,7 @@ const Login = () => {
     return new Promise((resolve, reject) => {
       axios({
         method: "POST",
-        url: `http://localhost:5000/api/users/login`,
+        url: `api/users/login`,
         data: {
           email: state.email,
           password: state.password,
