@@ -43,8 +43,8 @@ const Chat = () => {
   });
 
   return (
-    <div className="container Chat padding padding-top shadow">
-      <Grid container className="Chatboard padding" spacing={2}>
+    <div className="container Chat">
+      <Grid container className="Chatboard padding shadow" spacing={2}>
         <form className="margin" onSubmit={onMessageSubmit}>
           <Grid item xs={11} className="title">
             <h2>MESSENGER</h2>

@@ -1,11 +1,10 @@
 .Chat {
-  background-color: crimson;
-  color: white;
-  height: 80%;
+  margin-top: 10rem;
 }
 
 .Chatboard {
   background-color: crimson;
+  color: white;
 }
 
 .title {
@@ -14,10 +13,6 @@
 
 .padding {
   padding: 5rem 0;
-}
-
-.padding-top {
-  padding-top: 10rem;
 }
 
 .margin {
