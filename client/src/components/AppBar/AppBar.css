@@ -24,6 +24,10 @@
   background-color: #272827 !important;
 }
 
+.logo {
+  width: 20%;
+  height: auto;
+}
 /* styling */
 .parentList {
   display: flex;
