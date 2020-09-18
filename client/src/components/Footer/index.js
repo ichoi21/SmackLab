@@ -1,6 +1,9 @@
 import React from "react";
 import { Grid, Typography, Link } from "@material-ui/core";
 import "./Footer.css";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 
 function Copyright() {
   return (
@@ -20,24 +23,45 @@ const Footer = () => {
     <div>
       <Grid container>
         <Grid className="footerColor footer-pos" item xs={3}>
-          <div className="text-color text-link" >
-            <p><b>INFO</b></p>
-            <p>SMACKLAB is the global destination to get
-              the best workout of your life while talking smack.
+          <div className="text-color text-link">
+            <p>
+              <b>INFO</b>
+            </p>
+            <p>
+              SMACKLAB is the global destination to get the best workout of your
+              life while talking smack.
             </p>
           </div>
         </Grid>
         <Grid className="footerColor footer-pos" item xs={1}></Grid>
-        <Grid item xs={8}>
+        <Grid item xs={4}>
           <div className="footerColor footer-pos" id="Footer">
             <div className="text-color" id="FooterLinks">
-              <p><b>MORE</b></p>
+              <p>
+                <b>MORE</b>
+              </p>
               <Link color="inherit" href="/About">
                 About Us
               </Link>{" "}
               <Link color="inherit" href="/Contact">
                 Contact
               </Link>{" "}
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={4}>
+          <div className="footerColor footer-pos" id="Footer">
+            <div className="text-color" id="FooterLinks">
+              <p>
+                <b>FOLLOW US</b>
+              </p>
+              <InstagramIcon color="inherit" href="/Contact" alt="#Smvcklvb" />
+              <FacebookIcon color="inherit" href="/Contact" alt="@Smvcklvb" />
+              <TwitterIcon
+                color="inherit"
+                href="/Contact"
+                alt="@Smvcklvbfitness"
+              />
             </div>
           </div>
         </Grid>
