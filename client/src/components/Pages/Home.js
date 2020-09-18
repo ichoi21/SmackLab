@@ -5,6 +5,7 @@ import { Paper, Grid, makeStyles, Typography } from "@material-ui/core";
 import "./Home.css";
 import "../../App.css";
 import Card from "../Card/Card";
+import ProfileCard from "../Card/ProfileCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,24 +27,26 @@ const Home = () => {
 
   const currentUser = JSON.parse(localStorage.getItem('user')); 
   const currentUserName = currentUser.first_name;
+  const letter = currentUserName[0];
+  const fullName = currentUser.first_name + " " + currentUser.last_name;
 
   return (
     <div className="Home">
       <Grid container className="Title" spacing={3}>
         <div className="userName">
           <Typography
-            variant="h3"
+            variant="h4"
             className="welcome"
             color="textPrimary"
             gutterBottom
           >
-            Welcome Back {currentUserName}!
+            <b>{currentUserName}</b>, welcome back!
           </Typography>
         </div>
       </Grid>
       <Grid container spacing={3}>
         <Grid item xs={6}>
-          <Card title="Profile" text="View Profile" />
+          <ProfileCard title="Profile" fullName={fullName} letter={letter} text="View Profile" />
         </Grid>
         <Grid item xs={6}>
           <Card title="Recommendations" text="View Recommendations" />
