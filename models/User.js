@@ -9,11 +9,11 @@ const UserSchema = new Schema({
   password: { type: String, required: true, minLength: 6 },
   date: { type: Date, default: Date.now },
   profile : [
-    {type: Schema.Types.ObjectId,ref:'Profile'}
+    {type: Schema.Types.ObjectId, ref: 'Profile'}
   ],
   workout: [
     {type: Schema.Types.ObjectId, ref: "Workout"}
   ]
 });
 
-module.exports = User = mongoose.model("User", UserSchema);
+module.exports = User = mongoose.model("users", UserSchema);
