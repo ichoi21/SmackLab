@@ -27,7 +27,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 20px;
   width: 40px;
   border-radius: 12px;
-  background: #529de1;
+  background: crimson;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3px;
@@ -51,7 +51,7 @@ input[type="range"]::-moz-range-thumb {
   height: 20px;
   width: 40px;
   border-radius: 12px;
-  background: #529de1;
+  background: crimson;
   cursor: pointer;
 }
 input[type="range"]::-ms-track {
@@ -82,7 +82,7 @@ input[type="range"]::-ms-thumb {
   height: 50px;
   width: 40px;
   border-radius: 12px;
-  background: #529de1;
+  background: crimson;
   cursor: pointer;
 }
 input[type="range"]:focus::-ms-fill-lower {
@@ -104,5 +104,8 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .calc {
-  height: 90vh;
+  height: 75vh;
+  padding: 5em;
+  background-color: #282827;
+  color: white;
 }
