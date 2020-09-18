@@ -1,35 +1,40 @@
-const express = require("express").Router();
+const express = require("express");
 const Axios = require("axios");
 const auth = require("../middleware/auth");
-const router = express.Router();
-const path = require("path");
-const db = require("../models");
+const ProfileRouter = express.Router();
 
-router.get("/example", (req, res) => {
-  res.send("message from back end: success");
-});
+// load Profile model
+const User = require("../models/User");
+const Profile = require("../models/Profile");
 
-router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/", "index.html"));
-});
-
-router.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/", "signup.html"));
-});
-
-router.post("/signup", (req, res) => {
-  db.User.create({
-    first_name: req.body.first,
-    last_name: req.body.last,
-    email: req.body.email,
-    password: req.body.password,
-  })
-    .then(function (dbUser) {
-      res.send(dbUser);
-    })
-    .catch(function (err) {
-      res.json(err);
+// questions by user
+ProfileRouter.get('/profile', auth, function(req, res) {
+  // An empty find method will return all Posts
+  User.findById(req.user)
+    .select("profile workout")
+    .populate("profile")
+    .exec((err, user) => {
+      console.log("POPULATED" + user);
+      res.json(user);
     });
 });
 
-module.exports = router;
+ProfileRouter.post("/profile/populate", auth, async (req, res) => {
+  const profile = new Profile({
+    user: req.user,
+    questions: req.body.questions,
+  });
+  const user = req.user;
+  profile.save((err, profile) => {
+    User.findById(user, (err, base) => {
+      base.profile.push(profile);
+      base.save((err, user) => {
+        if (err)
+          return res.send(err);
+        res.json(user);
+      })
+    })
+  });
+});
+  
+module.exports = ProfileRouter;
