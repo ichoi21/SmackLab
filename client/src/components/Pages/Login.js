@@ -86,7 +86,7 @@ const Login = () => {
       backgroundImage: "url(https://source.unsplash.com/featured/?workout)",
       backgroundRepeat: "no-repeat",
       backgroundColor:
-        theme.palette.type === "light"
+        theme.palette.type === "dark"
           ? theme.palette.grey[50]
           : theme.palette.grey[900],
       backgroundSize: "cover",
@@ -114,7 +114,7 @@ const Login = () => {
   const classes = useStyles();
 
   return (
-    <div id="Login" style={{ marginTop: "8em" }}>
+    <div id="Login">
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
