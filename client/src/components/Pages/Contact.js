@@ -15,6 +15,7 @@ import {
 
 // CSS
 import "./Styles.css";
+import "./Contact.css";
 
 export default function ContactUS() {
   function sendEmail(e) {

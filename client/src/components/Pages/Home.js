@@ -44,30 +44,32 @@ const Home = () => {
               </Typography>
             </div>
           </Grid>
-        </Grid>
-        <Grid container>
-          <Grid item xs={2}>
-          <Grid container direction="column" spacing={3}>
-            <Grid item xs={2} sm={2}>
-              <ProfileCard
-                title="Profile"
-                fullName={fullName}
-                letter={letter}
-                text="View Profile"
-                link="/profile"
-              />
-            </Grid>
-          </Grid>
-          <Grid item xs={1}></Grid>
-          <Grid item xs={10} sm={9}>
-            <Grid container direction="row" spacing={3}>
-              <Grid item xs={1}></Grid>
-              <Grid item xs={12} sm={11} direction="row">
-                <Calc title="Calculator" text="Find your Info" />
+          <Grid container>
+            <Grid item xs={2}>
+              <Grid container direction="column" spacing={3}>
+                <Grid item xs={2} sm={2}>
+                  <ProfileCard
+                    title="Profile"
+                    fullName={fullName}
+                    letter={letter}
+                    text="View Profile"
+                    link="/profile"
+                  />
+                </Grid>
               </Grid>
             </Grid>
+
+            <Grid item xs={1}></Grid>
+              <Grid item xs={10} sm={9}>
+                <Grid container direction="row" spacing={3}>
+                  <Grid item xs={1}></Grid>
+                  <Grid item xs={12} sm={11} direction="row">
+                    <Calc title="Calculator" text="Find your Info" />
+                  </Grid>
+                </Grid>
+              </Grid>  
           </Grid>
-        </Grid>
+          
         </Grid>
       </div>
     </div>
