@@ -76,7 +76,7 @@ export default function RecipeReviewCard(props) {
           <p> Age: {currentUser.age || ""} </p>
           <p> Weight: {currentUser.weight || ""} </p>
           <p> Height: {currentUser.height || ""} </p>
-          <p> Fitness Goal: {currentUser.fitnessGoal} </p>
+          <p> Fitness Goal: {currentUser.Results} </p>
         </Typography>
       </CardContent>
       <CardActions disableSpacing></CardActions>
