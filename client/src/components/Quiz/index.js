@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Quiz from "./Quiz";
 import Result from "./Result";
 import quizQuestions from "../../api/quizQuestions";
-import { handleSubmit } from "../Profile/Profile";
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +17,7 @@ class App extends Component {
       result: "",
     };
 
+    //this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -32,10 +32,6 @@ class App extends Component {
     });
   }
 
-  handleSubmit () {
-    console.log(this.state.answerOptions);
-    this.props.handleSubmit(this.state.answerOptions);
-  }
 
   shuffleArray(array) {
     var currentIndex = array.length,
@@ -123,7 +119,6 @@ class App extends Component {
   }
 
   renderResult() {
-    return <Result handleSubmit={this.handleSubmit} quizResult={this.state.result} />;
   }
 
   render() {
