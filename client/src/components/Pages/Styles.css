@@ -1,6 +1,10 @@
 .About {
   background-color: #272827;
-  margin-top: 6em;
+}
+
+.bg {
+  background-color: #212121;
+  padding: 2em;
 }
 
 #Contact {
