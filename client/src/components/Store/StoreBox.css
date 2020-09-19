@@ -1,0 +1,49 @@
+@import "../Pages/Styles.css";
+
+.profilebox {
+  background-color: #272828;
+  color: white;
+  width: 100%;
+  max-width: 370px;
+  min-height: 460px;
+  position: relative;
+  margin: 30px auto;
+}
+.profileImage {
+  max-width: auto;
+  height: 100%;
+  position: relative;
+  img {
+    width: 100%;
+  }
+}
+
+.profilehover {
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: rgba($main-color, 0.8);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profileImage:hover {
+  .profilehover {
+    opacity: 1;
+  }
+}
+
+.rankInfo {
+  background-color: #f50457;
+  color: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  border: 4px solid $light-color;
+  width: 80%;
+  padding: 5px 20px;
+}
