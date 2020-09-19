@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import { Grid, TextField } from "@material-ui/core";
 import "./Chat.css";
 
-const socket = io.connect("process.env.PORT");
+const socket = io.connect("/chat");
 
 const Chat = () => {
   const currentUser = JSON.parse(localStorage.getItem("user"));

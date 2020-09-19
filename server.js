@@ -8,6 +8,7 @@ const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const PORT = process.env.PORT || 5000;
+const PORT2 = process.env.PORT2 || 4000;
 const path = require("path");
 const cors = require("cors");
 
@@ -71,8 +72,8 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(4000, () => {
-  console.log("Chat is now on stand-by at at port http://localhost:4000");
+http.listen(PORT2, () => {
+  console.log("Chat is now on stand-by at at port http://localhost:${PORT2}");
 });
 app.listen(PORT, () => {
   console.log(`API Server is up and Listening at - http://localhost:${PORT}`);
