@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Profile = () => {
-  // const initialState = {
-  //   questions: [],
-  // };
+  const initialState = {
+    questions: [],
+  };
 
   // const [data, setData] = React.useState(initialState);
   // const handleInputChange = (event) => {
@@ -41,8 +41,15 @@ const Profile = () => {
   //       console.log(err.response);
   //     });
   // };
+
+  const [profileState, setProfileState] = React.useState(initialState);
+  const handleSubmit = (answerOptions) => {
+    console.log(answerOptions);
+    setProfileState({ ...profileState, answers: answerOptions });
+  }
+
   // const token = localStorage.getItem("token");
-  // console.log(state);
+  // // console.log(state);
   // return new Promise((resolve, reject) => {
   //   axios({
   //     method: "POST",
@@ -84,7 +91,7 @@ const Profile = () => {
           justify="center"
           alignItems="center"
         >
-          <QuizCard />
+          <QuizCard onSubmit={handleSubmit}/>
         </Grid>
       </div>
     </div>
