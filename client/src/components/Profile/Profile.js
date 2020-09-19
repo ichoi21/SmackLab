@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 import GradientButton from "../Button/GradientButton";
 import { Link, BrowserRouter as Router } from "react-router-dom";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "../Profile/ProfileCard";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -18,6 +18,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Profile = () => {
+  const [profileState, setProfileState] = useState(null);
+
+  // // useEffect(() => {
+  // //   const token = localStorage.getItem("token");
+  //   axios({
+  //     method: "GET",
+  //     url: "",
+  //     headers: { "x-auth-token": token },
+  //   })
+  //     .then((response) => {
+  //       const profileInfo = response.data;
+  //       setProfileState(profileInfo);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
+
+  // const initialState = {
+  //   questions: [],
+  // };
 
   // const [data, setData] = React.useState(initialState);
   // const handleInputChange = (event) => {
@@ -37,15 +59,8 @@ const useStyles = makeStyles((theme) => ({
   //       console.log(err.response);
   //     });
   // };
-
-  const [profileState, setProfileState] = React.useState(initialState);
-  const handleSubmit = (answerOptions) => {
-    console.log(answerOptions);
-    setProfileState({ ...profileState, answers: answerOptions });
-  }
-
   // const token = localStorage.getItem("token");
-  // // console.log(state);
+  // console.log(state);
   // return new Promise((resolve, reject) => {
   //   axios({
   //     method: "POST",
@@ -107,6 +122,7 @@ const useStyles = makeStyles((theme) => ({
           justify="center"
           alignItems="center"
         >
+          <QuizCard handleSubmit={handleSubmit} />
         </Grid>
       </div>
     </div>
