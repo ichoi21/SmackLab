@@ -43,20 +43,7 @@ const Video = (props) => {
     useEffect(() => {
         getVideo();
     }, [])
-    return (
 
-        <>
-            {state.id.map((vidid) => {
-                return (
-                    <ReactPlayer
-                        url={`https://www.youtube.com/watch?v=${vidid}`}
-                    />
-                )
-
-            })}
-        </>
-
-    )
 
 
 
