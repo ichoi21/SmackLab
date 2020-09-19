@@ -49,7 +49,7 @@ const ProfileCard = (props) => {
                                     title={<h3>{props.fullName}</h3>}
                                 />
                                 <CardActions>
-                                    <GradientButton text={props.text} />
+                                    <GradientButton link={props.link} text={props.text} />
                                 </CardActions>
                             </div>
                             <Typography className={classes.pos} color="textSecondary">

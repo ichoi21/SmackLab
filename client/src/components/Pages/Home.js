@@ -56,6 +56,7 @@ const Home = () => {
                 fullName={fullName}
                 letter={letter}
                 text="View Profile"
+                link="/profile"
               />
             </Grid>
             {/* <Grid item xs={1}></Grid> */}
