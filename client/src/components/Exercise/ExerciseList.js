@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import Exercise from './Exercises';
+import allExercises from './Exercise.json';
 import axios from 'axios';
 import Video from './Video';
 import ExerciseCard from './Card/ExerciseCard';
@@ -7,27 +8,27 @@ import {Grid} from '@material-ui/core';
 import {BrowserRouter as Router, Switch, Link, Route, useParams} from 'react-router-dom';
 const ExerciseList = () => {
     
-  
+        
+        let parts = [];
         const [state, setState] = useState({name: []});
+        const [bodyParts, setBodyParts] = useState({body: []});
         let {muscles} = useParams();
-        let array = [];
-        console.log(muscles);
 
         const getExercises = ()=> {
-            axios.get(`https://wger.de/api/v2/exerciseinfo/?limit=100&offset=20`).then((res)=>{
-        console.log(res.data.results);
-        const categ = res.data.results;
-         categ.map((ex)=>{
-             console.log(ex.category.name)
-            if(ex.category.name===muscles)
-            {
-                if(ex.name != ""){
-                    array.push(ex.name)
+
+            allExercises.map((exercise)=>{
+                if(exercise[0] === muscles)
+                {
+                    console.log("matching");
+                    exercise.map((muscle)=>{
+                        console.log(muscle);
+                        parts.push(muscle);
+                    })
                 }
-            }
-        })
-        setState({name: array});
-       });
+
+                setBodyParts({body: parts});
+            })
+        
         }
          
         useEffect(() => {
@@ -45,11 +46,11 @@ const ExerciseList = () => {
                     
                     <div className="container" spacing={6}>
 
-                        {state.name.map((exercise)=>{
+                        {bodyParts.body.map((exercise)=>{
                             console.log(exercise);
                           return(  <>
-                            <ExerciseCard name={exercise} text={muscles}/>
-                            <Video name={exercise}/>
+                            <ExerciseCard name={exercise} exercise = {exercise} text={muscles} />
+                            
                             </>)
                         })}
                     
