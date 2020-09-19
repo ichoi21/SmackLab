@@ -23,6 +23,7 @@ import ChatBtn from "./components/ChatBtn/ChatBtn";
 import "./App.css";
 import PrivateRoute from "./handlers/PrivateRoute";
 import PublicRoute from "./handlers/PublicRoute";
+import Store from "./components/Pages/Store";
 
 const App = () => {
   const { auth } = useAuthContext();
@@ -47,6 +48,7 @@ const App = () => {
           <PrivateRoute exact path="/calculator" component={Calc} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/store" component={Store} />
         </Switch>
         {/* Floating Button for chatter */}
         {!auth.isAuthenticated ? null : <ChatBtn />}
