@@ -24,3 +24,9 @@ Link {
   text-align: left;
   text-decoration: none;
 }
+
+@media (min-width: 600px) {
+  .MuiGrid-grid-sm-4 {
+    background-color: #212121;
+  }
+}
