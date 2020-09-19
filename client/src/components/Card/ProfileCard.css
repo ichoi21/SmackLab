@@ -1,0 +1,25 @@
+.parentProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* position: absolute;
+    z-index: 5; */
+    border-radius: 50px;
+    background: linear-gradient(145deg, #ffffff, #eeeeee);
+    box-shadow:  20px 20px 60px #cccccc, 
+             -20px -20px 60px #ffffff;
+}
+
+.childProfile, .nameProfile {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.MuiPaper-rounded {
+    border-radius: 50px !important;
+}

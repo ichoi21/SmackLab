@@ -1,9 +1,39 @@
 .Home {
-  height: 85vh;
+  min-height: 85vh;
   padding: 2em;
-  background-color: #212121;
+  background-color: #f0f0f0;
 }
 
 .userName {
-  margin: 1em;
+  margin: 3em 1em 1em 1em;
+  text-align: left;
+}
+
+.userName h4 {
+  color: #404040;
+}
+
+.animateProfile {
+  background: linear-gradient(223deg, #fe6b8b, #ff8e53);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 96%}
+  50%{background-position:100% 5%}
+  100%{background-position:0% 96%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 96%}
+  50%{background-position:100% 5%}
+  100%{background-position:0% 96%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 96%}
+  50%{background-position:100% 5%}
+  100%{background-position:0% 96%}
 }
