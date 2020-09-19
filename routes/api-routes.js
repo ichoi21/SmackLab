@@ -6,13 +6,14 @@ const ProfileRouter = express.Router();
 // load Profile model
 const User = require("../models/User");
 const Profile = require("../models/Profile");
-const {db} = require("../models/Video");
+// const {db} = require("../models/Video");
+const Video = require("../models/Video");
 
 // questions by user
 ProfileRouter.get('/profile', auth, function(req, res) {
   // An empty find method will return all Posts
   User.findById(req.user)
-    .select("profile workout")
+    .select("profile video")
     .populate("profile")
     .exec((err, user) => {
       console.log("POPULATED" + user);
@@ -49,12 +50,30 @@ ProfileRouter.post("/profile/populate", auth, async (req, res) => {
   });
 });
 
-ProfileRouter.post('/uservideo', (req, res) => {
-  db.Video.create({
-    id: req.body.id,
+// ProfileRouter.post('/uservideo', (req, res) => {
+//   db.Video.create({
+//     id: req.body.id,
+//     link: req.body.link,
+//   }).then((result)=>res.send(result)).
+//   catch((err)=>res.send(err));
+// });
+
+// making POST route with auth
+ProfileRouter.post('/uservideo', auth, (req, res) => {
+  const video = new Video({
     link: req.body.link,
-  }).then((result)=>res.send(result)).
-  catch((err)=>res.send(err));
-})
+  });
+  const user = req.user;
+  video.save((err, video) => {
+    User.findById(user, (err, base) => {
+      base.video.push(video);
+      base.save((err, user) => {
+        if (err) 
+          return res.send(err);
+        res.json(user);
+      })
+    })
+  })
+});
   
 module.exports = ProfileRouter;
