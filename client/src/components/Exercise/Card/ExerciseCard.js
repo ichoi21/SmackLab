@@ -18,6 +18,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
+let likes = [];
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -44,9 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const saveLike = () => {
-  console.log("Saved");
-}
+
 export default function ExerciseCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -54,6 +53,15 @@ export default function ExerciseCard(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const saveLike = () => {
+    likes.push(`https://www.youtube.com/embed/?listType=search&amp;list=${props.exercise}exercise&amp;wmode=transparent`)  
+    
+    axios.post('/profile/uservideo',  {
+        link: likes
+      });
+      
+    }
 
   return (
     <Card className={classes.root}>
@@ -72,12 +80,7 @@ export default function ExerciseCard(props) {
         
       />
 
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
-      <Video/>
+      <iframe id="ytplayer" type="text/html" src={`https://www.youtube.com/embed/?listType=search&amp;list=${props.exercise}exercise&amp;wmode=transparent`} frameborder="0" allowfullscreen=""></iframe>
       <CardContent>
         <Typography variant="body2" color="white" component="p">
           {props.description}

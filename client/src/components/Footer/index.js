@@ -53,7 +53,7 @@ const Footer = () => {
               <Link color="inherit" href="/Contact">
                 Contact
               </Link>{" "}
-              <Link color="inherit" href="/">
+              <Link color="inherit" href="/Store">
                 Store
               </Link>{" "}
             </div>
