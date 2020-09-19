@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Link } from "@material-ui/core";
+import { Grid, Typography, Link, makeStyles } from "@material-ui/core";
 import "./Footer.css";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -18,11 +18,18 @@ function Copyright() {
   );
 }
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
+
 const Footer = () => {
+  const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <Grid container>
-        <Grid className="footerColor footer-pos" item xs={3}>
+        <Grid className="footerColor footer-pos" item xs={6} sm={3}>
           <div className="text-color text-link">
             <p>
               <b>INFO</b>
@@ -34,7 +41,7 @@ const Footer = () => {
           </div>
         </Grid>
         <Grid className="footerColor footer-pos" item xs={1}></Grid>
-        <Grid item xs={4} className="footerColor footer-pos">
+        <Grid item xs={4} sm={4} className="footerColor footer-pos">
           <div id="Footer">
             <div className="text-color" id="FooterLinks">
               <p>
@@ -52,7 +59,7 @@ const Footer = () => {
             </div>
           </div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <div className="footerColor footer-pos" id="Footer">
             <div className="text-color" id="FooterLinks">
               <p>

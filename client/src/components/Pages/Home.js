@@ -32,34 +32,38 @@ const Home = () => {
 
   return (
     <div className="Home">
-      <Grid container className="Title" spacing={3}>
-        <div className="userName">
-          <Typography
-            variant="h4"
-            className="welcome"
-            color="textPrimary"
-            gutterBottom
-          >
-            <b>{currentUserName}</b>, welcome back!
-          </Typography>
-        </div>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <ProfileCard title="Profile" fullName={fullName} letter={letter} text="View Profile" />
+      <div className={classes.root}>
+        <Grid container className="Title" spacing={3}>
+          <Grid item xs={12}>
+            <div className="userName">
+              <Typography
+                variant="h4"
+                className="welcome"
+                color="textPrimary"
+                gutterBottom
+              >
+                <b>{currentUserName}</b>, welcome back!
+              </Typography>
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Card title="Recommendations" text="View Recommendations" />
+        <Grid container spacing={3}>
+          <Grid item xs={6} sm={6}>
+            <ProfileCard title="Profile" fullName={fullName} letter={letter} text="View Profile" />
+          </Grid>
+          <Grid item xs={6} sm={6}>
+            <Card title="Recommendations" text="View Recommendations" />
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs={8}>
-          <Card title="Workouts" text="View Workouts" />
+        <Grid container spacing={3}>
+          <Grid item xs={8}>
+            <Card title="Workouts" text="View Workouts" />
+          </Grid>
+          <Grid item xs={4}>
+            <Card title="Tips" text="View Tips" />
+          </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <Card title="Tips" text="View Tips" />
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };
