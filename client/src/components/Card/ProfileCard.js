@@ -4,9 +4,10 @@ import {
     Card,
     CardActions,
     CardContent,
+    CardHeader,
     Button,
     Typography,
-    createMuiTheme, 
+    createMuiTheme,
     ThemeProvider,
     Avatar,
     deepOrange,
@@ -23,6 +24,7 @@ const darkTheme = createMuiTheme({
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+        borderRadius: "50px",
     },
     title: {
         fontSize: 14,
@@ -36,27 +38,31 @@ const ProfileCard = (props) => {
     const classes = useStyles();
 
     return (
-        <ThemeProvider theme={darkTheme}>
-            <Card className={classes.root}>
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary">
-                        <p>{props.title}</p>
-                    </Typography>
-                    <Avatar>{props.letter}</Avatar>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        <h5>{props.fullName}</h5>
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                        {props.subtitle}
-                    </Typography>
-                    <Typography variant="body2" component="p">
-                        {props.body}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <GradientButton text={props.text} />
-                </CardActions>
-            </Card>
+        <ThemeProvider>
+            <div className={classes.root}>
+                <Card className="parentProfile">
+                    <div className="childProfile">
+                        <CardContent>
+                            <div className="nameProfile">
+                                <CardHeader
+                                    avatar={<Avatar>{props.letter}</Avatar>}
+                                    title={<h3>{props.fullName}</h3>}
+                                />
+                                <CardActions>
+                                    <GradientButton text={props.text} />
+                                </CardActions>
+                            </div>
+                            <Typography className={classes.pos} color="textSecondary">
+                                {props.subtitle}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                {props.body}
+                            </Typography>
+                        </CardContent>
+                        
+                    </div>
+                </Card>
+            </div>
         </ThemeProvider>
     )
 }
