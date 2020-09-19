@@ -11,8 +11,8 @@ const UserSchema = new Schema({
   profile : [
     {type: Schema.Types.ObjectId, ref: 'Profile'}
   ],
-  workout: [
-    {type: Schema.Types.ObjectId, ref: "Workout"}
+  video: [
+    {type: Schema.Types.ObjectId, ref: "Video"}
   ]
 });
 

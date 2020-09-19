@@ -79,11 +79,8 @@ const PrivateBar = () => {
       <Link to="/home">Home</Link>
     </Button>,
     <Button>
-      <Link to="/chat">Chat</Link>
-    </Button>,
-    <Button>
-      <Link to="/categories">Exercises</Link>
-    </Button>,
+    <Link to="/exercises">Exercises</Link>
+  </Button>,
     <Button>
       <Link to="/calculator">Calculator</Link>
     </Button>,
