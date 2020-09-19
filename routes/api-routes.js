@@ -61,34 +61,22 @@ ProfileRouter.post("/profile/populate", auth, async (req, res) => {
   });
 });
 
-// <<<<<<< master
-// // making POST route with auth
-// ProfileRouter.post('/profile/uservideo', auth, async (req, res) => {
-//   const video = new Video({
-//     link: req.body.link,
-//   });
-//   const user = req.user;
-//   video.save((err, video) => {
-//     User.findById(user, (err, base) => {
-//       base.video.push(video);
-//       base.save((err, user) => {
-//         if (err)
-//           return res.send(err);
-//         res.json(user);
-//       })
-//     })
-//   })
-// });
 
-// =======
-// ProfileRouter.post("/uservideo", (req, res) => {
-//   db.Video.create({
-//     id: req.body.id,
-//     link: req.body.link,
-//   })
-//     .then((result) => res.send(result))
-//     .catch((err) => res.send(err));
-// });
+ProfileRouter.post('/profile/uservideo', auth, async (req, res) => {
+  const video = new Video({
+    link: req.body.link,
+  });
+  const user = req.user;
+  video.save((err, video) => {
+    User.findById(user, (err, base) => {
+      base.video.push(video);
+      base.save((err, user) => {
+        if (err)
+          return res.send(err);
+        res.json(user);
+      })
+    })
+  })
+});
 
-// >>>>>>> master
 module.exports = ProfileRouter;
