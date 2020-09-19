@@ -73,7 +73,7 @@ io.on("connection", (socket) => {
 });
 
 http.listen(PORT2, () => {
-  console.log("Chat is now on stand-by at at port http://localhost:${PORT2}");
+  console.log(`Chat is now on stand-by at at port http://localhost:${PORT2}`);
 });
 app.listen(PORT, () => {
   console.log(`API Server is up and Listening at - http://localhost:${PORT}`);
