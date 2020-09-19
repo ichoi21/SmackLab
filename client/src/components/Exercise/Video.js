@@ -13,6 +13,8 @@ const Video = (props) => {
     let links = [];
     let arr = [];
 
+    console.log(stateId);
+
     axios.get('/profile', (req, res) => {
         const id = req.body.id;
         setId({ id: id });

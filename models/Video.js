@@ -6,7 +6,6 @@ const subSchema = new Schema({
 })
 
 const VideoSchema = new Schema({
-    id: {type: String, required: true}, 
     link: [subSchema]
 });
 
