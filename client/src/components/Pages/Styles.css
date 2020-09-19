@@ -16,6 +16,13 @@
 .Techniques {
   display: flex;
   justify-content: center;
+  margin-left: 5em;
+}
+
+.Techniques2 {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
 }
 
 .text-white {

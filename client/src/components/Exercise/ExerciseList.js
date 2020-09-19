@@ -46,11 +46,11 @@ const ExerciseList = () => {
             {/* <Exercise/> */}
             <h1 className="weight800 font40">This is {muscles}</h1>
             <div className="Techniques">
-              <Grid container className="container" spacing={2}>
+              <Grid container className="Techniques2" spacing={4}>
                 {bodyParts.body.map((exercise) => {
                   console.log(exercise);
                   return (
-                    <Grid item xs={6}>
+                    <Grid item xs={4}>
                       <ExerciseCard
                         name={exercise}
                         exercise={exercise}
