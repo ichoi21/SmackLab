@@ -13,6 +13,11 @@
   margin-top: 8em;
 }
 
+.Techniques {
+  display: flex;
+  justify-content: center;
+}
+
 .text-white {
   color: white;
 }
