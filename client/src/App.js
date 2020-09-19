@@ -13,6 +13,7 @@ import Categories from "./components/Exercise/Categories";
 import ExercisesList from "./components/Exercise/ExerciseList";
 import Profile from "./components/Profile/Profile";
 import Contact from "./components/Pages/Contact";
+import Test from "./components/Pages/Exercises";
 import About from "./components/Pages/About";
 import Landing from "./components/Pages/Landing";
 import Calc from "./components/Calculator/index";
@@ -39,7 +40,8 @@ const App = () => {
           <PublicRoute exact path="/login" component={Login} />
           {/* <Route exact path="/chat" component={Chat} /> */}
           <PrivateRoute exact path="/quiz" component={Quiz} />
-          <Route exact path="/categories" component={Categories} />
+          {/* <PrivateRoute exact path="/categories" component={Categories} /> */}
+          <PrivateRoute exact path="/exercises" component={Test} />
           <Route exact path="/exercises/:muscles" component={ExercisesList} />
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/calculator" component={Calc} />
