@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const API = process.env.REACT_APP_YTVKey;
+const API = `${process.env.REACT_APP_YTVKey}`;
 
 const Video = (props) => {
   const [stateId, setId] = useState({ id: "" });
