@@ -11,6 +11,7 @@ import Card from "../Card/Card";
 import Quiz from "../Quiz/Quiz";
 import QuizCard from "../Quiz/index";
 import axios from "axios";
+import AnswerOption from "../Quiz/AnswerOption";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,6 +95,7 @@ const Profile = () => {
     })
       .then((response) => {
         setProfileState({ ...profileState, answerOptions });
+        console.log(answerOptions);
       })
       .catch((err) => {
         console.log(err);

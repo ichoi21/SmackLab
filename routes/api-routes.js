@@ -36,7 +36,7 @@ ProfileRouter.get("/profile", auth, function (req, res) {
 ProfileRouter.post("/profile/populate", auth, async (req, res) => {
   const profile = new Profile({
     user: req.user,
-    questions: req.body.questions,
+    answers: req.body.answers,
     age: req.body.age,
     genderClass: req.body.genderClass,
     height: req.body.height,
@@ -72,14 +72,14 @@ ProfileRouter.post("/profile/populate", auth, async (req, res) => {
 //     User.findById(user, (err, base) => {
 //       base.video.push(video);
 //       base.save((err, user) => {
-//         if (err) 
+//         if (err)
 //           return res.send(err);
 //         res.json(user);
 //       })
 //     })
 //   })
 // });
-  
+
 // =======
 // ProfileRouter.post("/uservideo", (req, res) => {
 //   db.Video.create({
