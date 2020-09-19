@@ -64,7 +64,7 @@ export default function RecipeReviewCard(props) {
       </Grid>
       <CardMedia />
       <CardContent>
-        <Typography variant="body2" color="#fafafa" component="p">
+        <Typography variant="body2" color="textSecondary" component="p">
           <p> Name: {currentUserName} </p>
           <p> Age: {currentUser.age || ""} </p>
           <p> Weight: {currentUser.weight || ""} </p>
