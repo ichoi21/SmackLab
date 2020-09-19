@@ -3,7 +3,8 @@
 }
 
 .Chatboard {
-  background-color: crimson;
+  background: linear-gradient(to right, #fe6b8b 30%, #ff8e53 100%, #ffcb7c 50%);
+  border-radius: 12px;
   color: white;
 }
 
@@ -41,4 +42,8 @@
 
 .name-field {
   color: crimson;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 0px !important;
 }
