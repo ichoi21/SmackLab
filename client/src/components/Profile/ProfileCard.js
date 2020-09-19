@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -48,13 +48,13 @@ export default function RecipeReviewCard() {
     setExpanded(!expanded);
   };
 
-  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const currentUser = props.profileInfo;
   const currentUserName = currentUser.first_name;
 
   return (
     <Card className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
+        <Grid item xs={6} className="parentTitle">
           <CardHeader
             avatar={
               <Avatar aria-label="avatar" className={classes.avatar}>
@@ -69,10 +69,14 @@ export default function RecipeReviewCard() {
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           <p> Name: {currentUserName} </p>
-          <p>Age: 27</p>
+          {/* <p>Age: 27</p>
           <p>Weight: 119 </p>
           <p>Height: 5'2 </p>
-          <p>Fitness Goal: Cardio </p>
+          <p>Fitness Goal: Cardio </p> */}
+          <p> Age: {currentUser.age || ""} </p>
+          <p> Weight: {currentUser.weight || ""} </p>
+          <p> Height: {currentUser.height || ""} </p>
+          <p> Fitness Goal: {currentUser.fitnessGoal} </p>
         </Typography>
       </CardContent>
       <CardActions disableSpacing></CardActions>
