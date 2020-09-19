@@ -59,18 +59,17 @@ const Home = () => {
                 link="/profile"
               />
             </Grid>
-            {/* <Grid item xs={1}></Grid> */}
-          </Grid>
           </Grid>
           <Grid item xs={1}></Grid>
           <Grid item xs={10} sm={9}>
-          <Grid container direction="row" spacing={3}>
-            <Grid item xs={1}></Grid>
+            <Grid container direction="row" spacing={3}>
+              <Grid item xs={1}></Grid>
               <Grid item xs={12} sm={11} direction="row">
                 <Calc title="Calculator" text="Find your Info" />
               </Grid>
+            </Grid>
           </Grid>
-          </Grid>
+        </Grid>
         </Grid>
       </div>
     </div>
