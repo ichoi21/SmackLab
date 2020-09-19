@@ -6,7 +6,6 @@ const ProfileRouter = express.Router();
 // load Profile model
 const User = require("../models/User");
 const Profile = require("../models/Profile");
-// const {db} = require("../models/Video");
 const Video = require("../models/Video");
 
 // questions by user
@@ -50,16 +49,8 @@ ProfileRouter.post("/profile/populate", auth, async (req, res) => {
   });
 });
 
-// ProfileRouter.post('/uservideo', (req, res) => {
-//   db.Video.create({
-//     id: req.body.id,
-//     link: req.body.link,
-//   }).then((result)=>res.send(result)).
-//   catch((err)=>res.send(err));
-// });
-
 // making POST route with auth
-ProfileRouter.post('/uservideo', auth, (req, res) => {
+ProfileRouter.post('/profile/uservideo', auth, async (req, res) => {
   const video = new Video({
     link: req.body.link,
   });

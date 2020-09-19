@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Quiz from "./Quiz";
 import Result from "./Result";
 import quizQuestions from "../../api/quizQuestions";
+import { handleSubmit } from "../Profile/Profile";
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends Component {
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,11 @@ class App extends Component {
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0],
     });
+  }
+
+  handleSubmit () {
+    console.log(this.state.answerOptions);
+    this.props.handleSubmit(this.state.answerOptions);
   }
 
   shuffleArray(array) {
@@ -116,7 +123,7 @@ class App extends Component {
   }
 
   renderResult() {
-    return <Result quizResult={this.state.result} />;
+    return <Result handleSubmit={this.handleSubmit} quizResult={this.state.result} />;
   }
 
   render() {
