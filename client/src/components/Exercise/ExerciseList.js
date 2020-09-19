@@ -19,7 +19,7 @@ const ExerciseList = () => {
             allExercises.map((exercise)=>{
                 if(exercise[0] === muscles)
                 {
-                    console.log("matching");
+                    exercise.splice(0, 1);
                     exercise.map((muscle)=>{
                         console.log(muscle);
                         parts.push(muscle);
