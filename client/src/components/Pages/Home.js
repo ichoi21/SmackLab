@@ -70,6 +70,7 @@ const Home = () => {
             </Grid>
           </Grid>
         </Grid>
+        </Grid>
       </div>
     </div>
   );
