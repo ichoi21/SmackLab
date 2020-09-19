@@ -62,12 +62,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#21212188",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(2, 3, 3),
   },
 }));
 
@@ -148,21 +148,6 @@ const Exercises = () => {
           <Grid className="parentSearch">
             <Paper className="searchDescription">
               <TModal />
-              {/* <p>SEARCH</p>
-            </Paper> */}
-              {/* <Paper className="childSearch" component="form"> */}
-              {/* <InputBase
-                className={classes.input}
-                inputProps={{ "aria-label": "search exercises" }}
-                onClick={onClick}
-              />
-              <IconButton
-                type="submit"
-                className={classes.iconButton}
-                aria-label="search"
-              >
-                <SearchIcon />
-              </IconButton> */}
             </Paper>
           </Grid>
         </Grid>
