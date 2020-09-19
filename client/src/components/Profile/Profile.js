@@ -18,28 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Profile = () => {
-  const [profileState, setProfileState] = useState(null);
-
-  // // useEffect(() => {
-  // //   const token = localStorage.getItem("token");
-  //   axios({
-  //     method: "GET",
-  //     url: "",
-  //     headers: { "x-auth-token": token },
-  //   })
-  //     .then((response) => {
-  //       const profileInfo = response.data;
-  //       setProfileState(profileInfo);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
-  // const initialState = {
-  //   questions: [],
-  // };
 
   // const [data, setData] = React.useState(initialState);
   // const handleInputChange = (event) => {
@@ -59,8 +37,15 @@ const Profile = () => {
   //       console.log(err.response);
   //     });
   // };
+
+  const [profileState, setProfileState] = React.useState(initialState);
+  const handleSubmit = (answerOptions) => {
+    console.log(answerOptions);
+    setProfileState({ ...profileState, answers: answerOptions });
+  }
+
   // const token = localStorage.getItem("token");
-  // console.log(state);
+  // // console.log(state);
   // return new Promise((resolve, reject) => {
   //   axios({
   //     method: "POST",
@@ -122,7 +107,6 @@ const Profile = () => {
           justify="center"
           alignItems="center"
         >
-          <QuizCard handleSubmit={handleSubmit} />
         </Grid>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
-import { Grid, TextField, TextareaAutosize } from "@material-ui/core";
+import { Grid, TextField } from "@material-ui/core";
 import "./Chat.css";
 
 const socket = io.connect("http://localhost:4000");
@@ -43,39 +43,12 @@ const Chat = () => {
   });
 
   return (
-    <div className="container Chat">
-      <Grid container className="Chatboard padding shadow" spacing={2}>
-        <form className="margin" onSubmit={onMessageSubmit}>
-          <Grid item xs={11} className="title">
-            <h2>MESSENGER</h2>
-            <p className="font9 weight500">
-              Smack talk w/ trainers and fellow workout users!
-            </p>
-          </Grid>
-          <Grid item xs={10} className="name-field">
-            <TextField
-              name="name"
-              onChange={(e) => onTextChange(e)}
-              value={state.name}
-            />
-          </Grid>
-          <Grid item xs={11}>
-            <TextareaAutosize
-              rowsMin={3}
-              name="message"
-              onChange={(e) => onTextChange(e)}
-              value={state.message}
-              placeholder="Type a Message"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <button color="primary"> Send</button>
-          </Grid>
-        </form>
+    <div className="container Chat shadow">
+      <Grid container className="Chatboard" spacing={2}>
         <Grid
           item
-          md={6}
-          className="render-chat container"
+          xs={12}
+          className="render-chat"
           style={{
             justifyContent: "left",
             alignItems: "left",
@@ -86,7 +59,7 @@ const Chat = () => {
           <div
             className="ChatRoom"
             style={{
-              border: "10px solid crimson",
+              border: "1px solid crimson",
               width: "100%",
               color: "black",
             }}
@@ -94,6 +67,28 @@ const Chat = () => {
             <h3>Chatting is: LIVE...</h3>
             {renderChat()}
           </div>
+        </Grid>
+        <Grid item xs={12}>
+          <form className="margin" onSubmit={onMessageSubmit}>
+            <Grid item xs={3}>
+              <TextField
+                name="name"
+                onChange={(e) => onTextChange(e)}
+                value={state.name}
+              />
+            </Grid>
+            <Grid item xs={9}>
+              <TextField
+                name="message"
+                onChange={(e) => onTextChange(e)}
+                value={state.message}
+                placeholder="Type a Message"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <button color="action"> Send</button>
+            </Grid>
+          </form>
         </Grid>
       </Grid>
     </div>
