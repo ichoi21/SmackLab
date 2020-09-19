@@ -72,12 +72,7 @@ export default function ExerciseCard(props) {
         
       />
 
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
-      <Video/>
+      <iframe id="ytplayer" type="text/html" src={`https://www.youtube.com/embed/?listType=search&amp;list=${props.exercise}exercise&amp;wmode=transparent`} frameborder="0" allowfullscreen=""></iframe>
       <CardContent>
         <Typography variant="body2" color="white" component="p">
           {props.description}

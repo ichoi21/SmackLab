@@ -111,48 +111,50 @@ class Calc extends Component {
 
   render() {
     return (
-      <Grid container className="container">
-        <div className="calc">
-          <h2>Body Calculator</h2>
-          <p>
-            Slide to your details to find track if you should be smacked or
-            smacking!
-          </p>
-          <form>
-            <div>
-              <label>Age</label>
-              <Range value={this.state.age} onChange={this.ageChange} />
-            </div>
-            <div>
-              <label>Gender</label>
-              <ToggleSwitch
-                value={this.state.gender}
-                onChange={this.genderChange}
-              />
-            </div>
-            <div>
-              <label>Height</label>
-              <Range value={this.state.height} onChange={this.heightChange} />
-            </div>
-            <div>
-              <label>Weight</label>
-              <Range value={this.state.weight} onChange={this.weightChange} />
-            </div>
-            <div>
-              <label>Activity</label>
-              <Range
-                value={this.state.activity}
-                onChange={this.activityChange}
-              />
-              <span>
-                {this.state.activity}
-                {"+"} hrs/week
-              </span>
-            </div>
-          </form>
-          <Output data={this.state} />
-        </div>
-      </Grid>
+      <div className="bg">
+        <Grid container className="container">
+          <div className="calc">
+            <h2>Body Calculator</h2>
+            <p>
+              Slide to your details to find track if you should be smacked or
+              smacking!
+            </p>
+            <form>
+              <div>
+                <label>Age</label>
+                <Range value={this.state.age} onChange={this.ageChange} />
+              </div>
+              <div>
+                <label>Gender</label>
+                <ToggleSwitch
+                  value={this.state.gender}
+                  onChange={this.genderChange}
+                />
+              </div>
+              <div>
+                <label>Height</label>
+                <Range value={this.state.height} onChange={this.heightChange} />
+              </div>
+              <div>
+                <label>Weight</label>
+                <Range value={this.state.weight} onChange={this.weightChange} />
+              </div>
+              <div>
+                <label>Activity</label>
+                <Range
+                  value={this.state.activity}
+                  onChange={this.activityChange}
+                />
+                <span>
+                  {this.state.activity}
+                  {"+"} hrs/week
+                </span>
+              </div>
+            </form>
+            <Output data={this.state} />
+          </div>
+        </Grid>
+      </div>
     );
   }
 }
