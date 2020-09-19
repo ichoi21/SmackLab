@@ -56,6 +56,10 @@ var quizQuestions = [
         type: "Endurance",
         content: "HIIT",
       },
+      {
+        type: "Health",
+        content: "Overall body workouts",
+      },
     ],
   },
   {
@@ -110,7 +114,7 @@ var quizQuestions = [
     answers: [
       {
         type: "Question1",
-        content: "Don't have to time",
+        content: "Don't have the time",
       },
       {
         type: "Question2",

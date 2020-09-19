@@ -99,10 +99,10 @@ class About extends React.Component {
     };
 
     return (
-      <div className="About">
+      <div className="bg">
         <Grid container className="About container" spacing={12}>
           <h2 className="weight800 font40 padding30">About SMVCKLAB</h2>
-          <p className="font12 padding10">
+          <p className="font12 padding5">
             We are four students looking for a way to motivate working out
             during COVID-19 requiring majority of us to shelter in place. One of
             the best ways known to work has been to push others by smack

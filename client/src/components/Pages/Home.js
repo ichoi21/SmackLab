@@ -6,6 +6,7 @@ import "./Home.css";
 import "../../App.css";
 import Card from "../Card/Card";
 import ProfileCard from "../Card/ProfileCard";
+import Calc from "../Calculator";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
 
-
-  const currentUser = JSON.parse(localStorage.getItem('user')); 
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   const currentUserName = currentUser.first_name;
   const letter = currentUserName[0];
   const fullName = currentUser.first_name + " " + currentUser.last_name;
@@ -49,10 +49,15 @@ const Home = () => {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={6} sm={6}>
-            <ProfileCard title="Profile" fullName={fullName} letter={letter} text="View Profile" />
+            <ProfileCard
+              title="Profile"
+              fullName={fullName}
+              letter={letter}
+              text="View Profile"
+            />
           </Grid>
           <Grid item xs={6} sm={6}>
-            <Card title="Recommendations" text="View Recommendations" />
+            <Calc title="Calculator" text="Find your Info" />
           </Grid>
         </Grid>
         <Grid container spacing={3}>

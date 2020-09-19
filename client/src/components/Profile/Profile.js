@@ -11,6 +11,8 @@ import Card from "../Card/Card";
 import Quiz from "../Quiz/Quiz";
 import QuizCard from "../Quiz/index";
 import axios from "axios";
+import AnswerOption from "../Quiz/AnswerOption";
+import "../Pages/Styles.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,6 +96,7 @@ const Profile = () => {
     })
       .then((response) => {
         setProfileState({ ...profileState, answerOptions });
+        console.log(answerOptions);
       })
       .catch((err) => {
         console.log(err);
@@ -104,7 +107,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="Profile">
+    <div className="bg">
       <div className={classes.root}>
         <Grid
           container
@@ -112,6 +115,7 @@ const Profile = () => {
           direction="column-reverse"
           justify="center"
           alignItems="center"
+          className="Profile text-white"
         >
           {profileState && <ProfileCard profileInfo={profileState} />}
         </Grid>
